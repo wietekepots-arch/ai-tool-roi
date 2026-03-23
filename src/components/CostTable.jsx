@@ -6,14 +6,14 @@ export default function CostTable({ tiers }) {
 
   return (
     <section>
-      <h2>Full Cost Scenario Table</h2>
+      <h2>Volledige kostenscenario's</h2>
       <table>
         <thead>
           <tr>
-            <th>Scenario</th>
-            <th>Monthly Cost</th>
-            <th>Min. Hours to Break Even</th>
-            <th>Risk</th>
+            <th>Situatie</th>
+            <th>Maandelijkse kosten</th>
+            <th>Min. uren om quitte te draaien</th>
+            <th>Risico</th>
           </tr>
         </thead>
         <tbody>
@@ -41,11 +41,12 @@ export default function CostTable({ tiers }) {
       </table>
 
       <div className="note" style={{ marginTop: 16 }}>
-        <strong>How to read "Min. Hours to Break Even":</strong> This is how
-        many hours you need to save per month for the tool cost to pay for
-        itself at your hourly rate. Everything beyond that is pure productivity
-        gain for the business. Even ChatGPT Pro at €190/month only requires
-        saving <em>~2.5 hours per month</em> — roughly 30 minutes a week.
+        <strong>Hoe je "Min. uren om quitte te draaien" leest:</strong> Dit is
+        het aantal uren dat je per maand moet besparen om de toolkosten terug
+        te verdienen tegen jouw uurtarief. Alles daarboven is pure
+        productiviteitswinst voor het bedrijf. Zelfs ChatGPT Pro voor
+        EUR 190 per maand vraagt maar <em>ongeveer 2,5 uur per maand</em>, dus
+        grofweg 30 minuten per week.
       </div>
     </section>
   );

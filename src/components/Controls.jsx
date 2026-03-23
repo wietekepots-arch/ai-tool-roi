@@ -3,12 +3,12 @@ import { PRESETS } from '../useROI'
 export default function Controls({ rate, setRate, monthlyHours, setMH, gain, setGain }) {
   return (
     <section>
-      <h2>Adjust Your Numbers</h2>
+      <h2>Pas je cijfers aan</h2>
       <div className="assumptions">
-        <p className="assumptions-hint">Adjust to your situation — all numbers update live.</p>
+        <p className="assumptions-hint">Pas dit aan op jouw situatie; alle cijfers verversen direct.</p>
 
         <div className="rate-presets">
-          <span className="presets-label">Quick set:</span>
+          <span className="presets-label">Snel kiezen:</span>
           {PRESETS.map(p => (
             <button
               key={p.rate}
@@ -22,21 +22,21 @@ export default function Controls({ rate, setRate, monthlyHours, setMH, gain, set
 
         <div className="sliders-grid">
           <SliderItem
-            label="Your Hourly Rate (€)"
+            label="Jouw uurtarief (€)"
             min={40} max={175} step={5}
             value={rate}
             onChange={v => setRate(v)}
-            display={`€${rate} / hr`}
+            display={`EUR ${rate} / uur`}
           />
           <SliderItem
-            label="Billable Hours / Month"
+            label="Declarabele uren / maand"
             min={100} max={184} step={4}
             value={monthlyHours}
             onChange={v => setMH(v)}
-            display={`${monthlyHours} hrs`}
+            display={`${monthlyHours} uur`}
           />
           <SliderItem
-            label="Productivity Gain (%)"
+            label="Productiviteitswinst (%)"
             min={5} max={40} step={1}
             value={gain}
             onChange={v => setGain(v)}

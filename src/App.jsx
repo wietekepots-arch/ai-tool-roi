@@ -17,74 +17,78 @@ export default function App() {
       <Header />
 
       <section id="why" className="intro-section">
-        <h2>Why Run This Experiment Now?</h2>
+        <h2>Waarom dit experiment nu draaien?</h2>
         <p>
-          AI developer tooling is moving fast. New models, new agents, new
-          pricing, and new limits show up constantly. What looked like the best
-          setup last month can already be outdated.
+          AI-tooling voor developers verandert snel. Nieuwe modellen, nieuwe
+          agents, nieuwe prijzen en nieuwe limieten verschijnen voortdurend.
+          Wat vorige maand nog de beste setup leek, kan nu al verouderd zijn.
         </p>
         <p>
-          This page tracks what actually helps in day-to-day development and
-          what only looks good in demos. The goal is to build a practical,
-          repeatable workflow we can trust for real delivery.
+          Deze pagina volgt wat echt helpt in dagelijkse development en wat
+          alleen goed oogt in demo's. Het doel is een praktische, herhaalbare
+          workflow op te bouwen waarop we kunnen vertrouwen voor echte delivery.
         </p>
 
         <div className="intro-grid">
           <article className="intro-card">
-            <h3>Benefits We Expect</h3>
+            <h3>Voordelen die we verwachten</h3>
             <ul>
               <li>
-                Less time on boilerplate, debugging loops, and repetitive
+                Minder tijd kwijt aan boilerplate, debug-loops en repetitieve
                 refactors.
               </li>
               <li>
-                Faster first drafts for tests, documentation, and implementation
-                options.
+                Snellere eerste versies van tests, documentatie en
+                implementatie-opties.
               </li>
               <li>
-                Better focus by delegating background tasks to async agents.
+                Meer focus door achtergrondtaken uit te besteden aan async
+                agents.
               </li>
-              <li>Higher throughput without lowering code review standards.</li>
+              <li>Hogere throughput zonder lagere code review-standaarden.</li>
             </ul>
           </article>
 
           <article className="intro-card">
-            <h3>Current Issues We See</h3>
+            <h3>Problemen die we nu zien</h3>
             <ul>
               <li>
-                Tool pricing and quotas change quickly and are hard to forecast.
+                Toolprijzen en quota veranderen snel en zijn lastig te
+                voorspellen.
               </li>
               <li>
-                Model quality is inconsistent across task types and repo
-                maturity.
+                Modelkwaliteit is niet consistent tussen taaktypen en de
+                volwassenheid van een repo.
               </li>
-              <li>IDE-specific features create lock-in and migration risk.</li>
+              <li>IDE-specifieke features veroorzaken lock-in en migratierisico.</li>
               <li>
-                Teams need a clear way to separate hype from measurable value.
+                Teams hebben een duidelijke manier nodig om hype van meetbare
+                waarde te scheiden.
               </li>
               <li>
-                A developer using AI tools full-day can exhaust a 300-request
-                monthly allowance within a single working day, leaving the rest
-                of the month without premium model access.
+                Een developer die AI-tools de hele dag gebruikt, kan een
+                maandelijkse limiet van 300 requests binnen een werkdag
+                opgebruiken, waardoor de rest van de maand geen premium
+                modeltoegang meer overblijft.
               </li>
             </ul>
           </article>
         </div>
 
         <div className="note">
-          <strong>How we use AI in daily development:</strong> We treat AI as a
-          copilot, not an autopilot. We use it for drafting, exploration, and
-          automation, then validate outputs through normal engineering review
-          and testing.
+          <strong>Hoe we AI in dagelijkse development gebruiken:</strong> We
+          behandelen AI als copiloot, niet als autopiloot. We gebruiken het
+          voor eerste versies, verkenning en automatisering, en valideren de
+          output daarna via normale engineering review en tests.
         </div>
       </section>
 
       <section id="landscape" className="chapter">
-        <h2>Current Tools, Evidence, and Trade-offs</h2>
+        <h2>Huidige tools, bewijs en afwegingen</h2>
         <p className="chapter-lead">
-          This section combines hands-on findings with research evidence to show
-          where current tooling supports daily development and where risks
-          appear.
+          Deze sectie combineert praktijkbevindingen met onderzoek om te laten
+          zien waar huidige tooling dagelijkse development ondersteunt en waar
+          risico's ontstaan.
         </p>
 
         <KeyFindings />
@@ -94,10 +98,11 @@ export default function App() {
       </section>
 
       <section id="baseline" className="chapter">
-        <h2>Baseline: Value and ROI</h2>
+        <h2>Basislijn: waarde en ROI</h2>
         <p className="chapter-lead">
-          Start with your own rate, available hours, and a conservative
-          productivity gain to anchor the experiment in realistic numbers.
+          Begin met je eigen tarief, beschikbare uren en een conservatieve
+          productiviteitswinst om het experiment te verankeren in realistische
+          cijfers.
         </p>
 
         <Controls
@@ -117,9 +122,10 @@ export default function App() {
         />
 
         <div className="note" style={{ marginBottom: 0 }}>
-          <strong>How to read this:</strong> "Value Saved / Month" is what your
-          time is worth to the business at your rate. Even at a conservative
-          independent-research estimate, most tool tiers break even quickly.
+          <strong>Hoe je dit leest:</strong> "Waarde bespaard / maand" is wat je
+          tijd voor het bedrijf waard is tegen jouw tarief. Zelfs bij een
+          conservatieve inschatting uit onafhankelijk onderzoek draaien de
+          meeste tooltiers snel quitte.
         </div>
       </section>
 

@@ -7,57 +7,58 @@ export default function TalkingPoints({ rate, monthlyHours, hoursSaved, valueSav
 
   return (
     <section>
-      <h2>Manager Talking Points</h2>
+      <h2>Gesprekspunten voor je manager</h2>
       <table>
         <thead>
-          <tr><th>Point</th><th>What to say</th></tr>
+          <tr><th>Punt</th><th>Wat je kunt zeggen</th></tr>
         </thead>
         <tbody>
           <tr>
-            <td style={{ width: 180, color: 'var(--accent)' }}>The math</td>
+            <td style={{ width: 180, color: 'var(--accent)' }}>De rekensom</td>
             <td>
-              At <strong>€{rate}/hr</strong>, the tool costs <strong>{beRange}</strong> per month
-              to break even. I recover that before 9am on the first working day. There is no
-              financial scenario where this is a bad spend.
+              Bij <strong>EUR {rate}/uur</strong> kost de tool <strong>{beRange}</strong> per maand
+              om quitte te draaien. Dat verdien ik al terug voor 09:00 op de eerste werkdag.
+              Er is financieel gezien geen realistisch scenario waarin dit een slechte uitgave is.
             </td>
           </tr>
           <tr>
-            <td style={{ color: 'var(--accent)' }}>Conservative estimate</td>
+            <td style={{ color: 'var(--accent)' }}>Conservatieve inschatting</td>
             <td>
-              Using the most conservative independent research (15% gain at {monthlyHours} hrs/month),
-              I recover approximately <strong>{fmtHrs(hoursSaved)}/month</strong> — worth{' '}
-              <strong>{fmt(valueSaved)}</strong> at my rate. ROI vs tool cost:{' '}
+              Met het meest conservatieve onafhankelijke onderzoek (15% winst bij {monthlyHours} uur/maand)
+              win ik ongeveer <strong>{fmtHrs(hoursSaved)}/maand</strong> terug. Dat is{' '}
+              <strong>{fmt(valueSaved)}</strong> waard tegen mijn tarief. ROI versus toolkosten:{' '}
               <strong>{Math.round(roi)}×</strong>.
             </td>
           </tr>
           <tr>
-            <td style={{ color: 'var(--accent)' }}>What I use it for</td>
+            <td style={{ color: 'var(--accent)' }}>Waar ik het voor gebruik</td>
             <td>
-              Async agentic tasks (Codex runs background jobs while I code), boilerplate, test
-              generation, documentation — not vibe coding. I review all output before committing.
+              Async agenttaken (Codex draait achtergrondwerk terwijl ik codeer), boilerplate,
+              testgeneratie en documentatie; niet voor blind vibe coden. Ik review alle output
+              voordat ik commit.
             </td>
           </tr>
           <tr>
-            <td style={{ color: 'var(--accent)' }}>Data privacy</td>
+            <td style={{ color: 'var(--accent)' }}>Dataprivacy</td>
             <td>
-              We're on a business license. Code submitted to the API is not used for training.
-              I don't send secrets or credentials through the tool.
+              We zitten op een zakelijke licentie. Code die naar de API wordt gestuurd, wordt
+              niet gebruikt voor training. Ik stuur geen secrets of credentials door de tool.
             </td>
           </tr>
           <tr>
-            <td style={{ color: 'var(--warn)' }}>Tipping point ask</td>
+            <td style={{ color: 'var(--warn)' }}>Upgradeverzoek</td>
             <td>
-              If I ever ask to upgrade to a higher tier (€95–100/month), I still only need to
-              save <strong>{beUpgrade}</strong>/month to break even. The financial risk to the
-              company remains negligible.
+              Als ik ooit vraag om te upgraden naar een hogere tier (EUR 95-100/maand), hoef ik
+              nog steeds maar <strong>{beUpgrade}</strong>/maand te besparen om quitte te draaien.
+              Het financiele risico voor het bedrijf blijft verwaarloosbaar.
             </td>
           </tr>
           <tr>
-            <td style={{ color: 'var(--danger)' }}>What NOT to ask for now</td>
+            <td style={{ color: 'var(--danger)' }}>Waar ik nu NIET om zou vragen</td>
             <td>
-              ChatGPT Pro at €190/month needs <strong>{bePro}</strong>/month saved to justify —
-              that's still very low, but hold off until you have 3 months of tracked output to
-              demonstrate the gain credibly.
+              ChatGPT Pro voor EUR 190/maand vraagt <strong>{bePro}</strong>/maand aan besparing
+              om te rechtvaardigen. Dat is nog steeds weinig, maar wacht daarmee tot je drie
+              maanden aan gemeten output hebt om de winst geloofwaardig te onderbouwen.
             </td>
           </tr>
         </tbody>

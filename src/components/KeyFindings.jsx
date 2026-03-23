@@ -4,92 +4,92 @@ const FINDINGS = [
   {
     toolKey: 'codex',
     status: 'warn',
-    statusLabel: 'Under investigation',
+    statusLabel: 'Wordt onderzocht',
     verdict:
-      'Promising daily tool, but keep it on monthly review until quota and pricing behavior stabilizes.',
+      'Veelbelovende dagelijkse tool, maar houd hem in maandelijkse review tot quota en prijsbeleid stabieler zijn.',
     whatFor:
-      'Async agent execution for repo-wide search, refactoring existing code, code review support, and repetitive edits while I stay focused on implementation. I run it on bounded tasks with clear scope, review every proposed change, and only merge after lint, tests, and standard code review pass.',
+      'Async agents voor repo-breed zoeken, bestaande code refactoren, ondersteuning bij code review en repetitieve edits terwijl ik gefocust blijf op implementatie. Ik gebruik het voor afgebakende taken met een duidelijke scope, review elke wijziging en merge pas nadat lint, tests en normale code review slagen.',
     goodAt:
-      'Strong for high-volume tasks that would otherwise interrupt mainline coding flow. Reliable as a background worker while primary implementation continues in parallel — no rate-limit interruptions observed so far, even under intensive daily use. Works across IDE environments, which keeps workflow setup portable.',
+      'Sterk in taken met hoog volume die anders de hoofdflow van development zouden onderbreken. Betrouwbaar als achtergrondwerker terwijl implementatie parallel doorgaat; tot nu toe geen onderbrekingen door rate limits gezien, ook niet bij intensief dagelijks gebruik. Werkt over IDE-omgevingen heen, waardoor de workflow portable blijft.',
     concerns:
-      'Preview-era quota and policy behavior can still change and reduce planning certainty. Async multi-file agents are the main burn source; batching too many large tasks at once is what pushes quota fastest. When throttling appears, I shift to VS Code + Claude/Copilot for interactive work and keep Codex for queued background jobs.',
+      'Quota en beleid uit de previewfase kunnen nog veranderen en maken planning minder zeker. Async agents over meerdere bestanden zijn de grootste verbruiker; te veel grote taken tegelijk batchen jaagt quota het snelst op. Als throttling optreedt, schakel ik voor interactief werk over naar VS Code + Claude/Copilot en houd ik Codex voor wachtrijen op de achtergrond.',
     pros: [
-      'No rate-limit interruptions under intensive daily use',
-      'Reliable background worker while mainline coding continues',
-      'Works across IDE environments — workflow stays portable',
-      'Strong for high-volume repetitive tasks',
+      'Geen onderbrekingen door rate limits bij intensief dagelijks gebruik',
+      'Betrouwbare achtergrondwerker terwijl development doorgaat',
+      'Werkt over IDE-omgevingen heen; workflow blijft portable',
+      'Sterk voor repetitieve taken met hoog volume',
     ],
     cons: [
-      'Preview quota and policy can change without notice',
-      'Less autonomous when file-system access is constrained',
-      'Temporary throughput boosts can create false delivery baselines',
+      'Previewquota en beleid kunnen zonder aankondiging veranderen',
+      'Minder autonoom wanneer bestandssysteemtoegang beperkt is',
+      'Tijdelijke throughput-boosts kunnen een verkeerd delivery-baseline geven',
     ],
   },
   {
     toolKey: 'cursor',
     status: 'danger',
-    statusLabel: 'Paused for now',
+    statusLabel: 'Nu gepauzeerd',
     verdict:
-      'Not suitable as a default team tool today; reassess only if billing and quota controls become predictable per user.',
+      'Vandaag niet geschikt als standaard teamtool; alleen opnieuw beoordelen als facturatie en quotacontroles per gebruiker voorspelbaar worden.',
     whatFor:
-      'All-in-one editor workflow with built-in AI coding features for fast interactive implementation. Currently paused — I only revisit for targeted evaluation sessions, not for full-time delivery work.',
+      'All-in-one editorworkflow met ingebouwde AI-codingfeatures voor snelle interactieve implementatie. Nu gepauzeerd; ik gebruik het alleen nog in gerichte evaluatiesessies, niet voor fulltime deliverywerk.',
     goodAt:
-      'Productive editor-native workflows when usage stays inside predictable limits. Can accelerate iteration speed on short, focused coding tasks where the IDE integration removes context-switching friction.',
+      'Productieve editor-native workflows zolang gebruik binnen voorspelbare limieten blijft. Kan iteraties versnellen bij korte, gefocuste codingtaken waar IDE-integratie contextwissels vermindert.',
     concerns:
-      'Large contexts and repeated agent loops consume credits quickly, especially with premium model settings. At cap, productivity drops fast because fallback quality and workflow continuity both degrade. Shared team caps create contention risk, and billing or quota rule changes can hit capacity suddenly.',
+      'Grote contexten en herhaalde agent-loops verbruiken snel credits, vooral met premium modelinstellingen. Bij het bereiken van de limiet zakt productiviteit hard weg omdat zowel fallbackkwaliteit als workflowcontinuiteit verslechteren. Gedeelde teamcaps geven concurrentierisico en wijzigingen in facturatie of quota kunnen capaciteit plots raken.',
     pros: [
-      'Productive editor-native workflow within predictable limits',
-      'Fast iteration on short, focused coding tasks',
+      'Productieve editor-native workflow binnen voorspelbare limieten',
+      'Snelle iteratie op korte, gefocuste codingtaken',
     ],
     cons: [
-      'Credit burn can force model downgrades mid-sprint',
-      'Shared team caps create contention and planning uncertainty',
-      'Less portable when switching back to plain VS Code',
+      'Creditverbruik kan midden in een sprint tot modeldowngrades leiden',
+      'Gedeelde teamcaps veroorzaken concurrentie en planningsonzekerheid',
+      'Minder portable bij terugschakelen naar gewone VS Code',
     ],
   },
   {
     toolKey: 'claudePro',
     status: 'accent',
-    statusLabel: 'Current daily baseline',
+    statusLabel: 'Huidige dagelijkse basis',
     verdict:
-      'Best current default for consistent delivery: predictable, portable, and easy to operate across projects.',
+      'Beste huidige standaard voor consistente delivery: voorspelbaar, portable en makkelijk inzetbaar over projecten heen.',
     whatFor:
-      'Daily implementation, architecture thinking, and difficult debugging where higher-quality reasoning matters. Sonnet is default for fast flow; Opus is reserved for deeper analysis or difficult refactors. I keep prompts short and context tight to avoid burning the 5-hour window.',
+      'Dagelijkse implementatie, architectuurwerk en lastige debugging waar beter redeneervermogen telt. Sonnet is de standaard voor snelle flow; Opus reserveer ik voor diepere analyse of moeilijke refactors. Ik houd prompts kort en context strak om het 5-uursvenster niet onnodig op te branden.',
     goodAt:
-      'Predictable fixed monthly cost with reliable model quality. The clear split between Sonnet (speed) and Opus (depth) makes it easy to match model choice to task weight. Portable across environments — no IDE lock-in.',
+      'Voorspelbare vaste maandkosten met betrouwbare modelkwaliteit. De duidelijke scheiding tussen Sonnet (snelheid) en Opus (diepte) maakt het makkelijk om modelkeuze op taakzwaarte af te stemmen. Portable over omgevingen heen, zonder IDE-lock-in.',
     concerns:
-      'Capacity can disappear fast on Opus-heavy days. Burn rises quickly when Opus is used for long threads. When I approach the 5-hour cap, I shift workload to Copilot or Codex and keep Claude for critical prompts only. Dynamic limit adjustments can change usable throughput without a plan change.',
+      'Capaciteit kan snel verdwijnen op dagen met veel Opus-gebruik. Verbruik loopt hard op bij lange threads. Als ik de 5-uurscap nader, verschuif ik werk naar Copilot of Codex en bewaar ik Claude alleen voor kritieke prompts. Dynamische limietaanpassingen kunnen bruikbare throughput veranderen zonder dat het plan wijzigt.',
     pros: [
-      'Predictable fixed monthly cost',
-      'Clear fast/deep model split (Sonnet / Opus)',
-      'No IDE lock-in — fully portable',
+      'Voorspelbare vaste maandkosten',
+      'Duidelijke scheiding tussen snel en diep (Sonnet / Opus)',
+      'Geen IDE-lock-in; volledig portable',
     ],
     cons: [
-      'Capacity drains fast on Opus-heavy days',
-      'Dynamic limit changes can reduce throughput unexpectedly',
-      'Single-provider dependency increases outage risk',
+      'Capaciteit loopt snel leeg op Opus-zware dagen',
+      'Dynamische limietwijzigingen kunnen throughput onverwacht verlagen',
+      'Afhankelijkheid van een enkele provider verhoogt storingsrisico',
     ],
   },
   {
     toolKey: 'copilot',
     status: 'accent',
-    statusLabel: 'Secondary hedge',
+    statusLabel: 'Secundaire hedge',
     verdict:
-      'Use as overflow and model-routing hedge; very efficient until premium requests are depleted.',
+      'Gebruik als overloop en hedge voor modelrouting; erg efficient tot premium requests op zijn.',
     whatFor:
-      'Fallback and burst-capacity coverage when Claude/Codex windows are constrained. I default to low-burn models and switch to higher-cost models only when task complexity justifies it.',
+      'Fallback en burst-capaciteit wanneer Claude- of Codex-vensters onder druk staan. Ik begin standaard met modellen met laag verbruik en schakel alleen naar duurdere modellen als de complexiteit van de taak dat rechtvaardigt.',
     goodAt:
-      'Excellent model breadth for a low fixed monthly price — Sonnet, Opus, and Codex variants all in one place. Codex Mini at 0.33x multiplier gives strong capacity for routine tasks. A strong hedge against single-provider limit events.',
+      'Uitstekende modelbreedte voor een lage vaste maandprijs: Sonnet, Opus en Codex-varianten op een plek. Codex Mini met 0,33x multiplier geeft veel capaciteit voor routinetaken. Een sterke hedge tegen limietproblemen bij een enkele provider.',
     concerns:
-      'The premium request pool can vanish quickly if Opus is used casually. Burn is highly model-dependent: Opus costs 3x while Codex Mini costs 0.33x. Untracked multiplier use can silently consume most of the monthly budget. Model multiplier changes can alter effective capacity even when the plan price stays fixed.',
+      'De premium request-pool kan snel verdwijnen als Opus te losjes wordt gebruikt. Verbruik hangt sterk af van het model: Opus kost 3x terwijl Codex Mini 0,33x kost. Ongemonitord gebruik van multipliers kan ongemerkt het grootste deel van het maandbudget opsouperen. Wijzigingen in modelmultipliers kunnen de effectieve capaciteit veranderen terwijl de prijs van het plan gelijk blijft.',
     pros: [
-      'Broad model access for a low fixed price',
-      'Strong hedge against single-provider outages',
-      'Codex Mini extends capacity at 0.33x cost',
+      'Brede modeltoegang voor een lage vaste prijs',
+      'Sterke hedge tegen uitval van een enkele provider',
+      'Codex Mini verlengt capaciteit tegen 0,33x kosten',
     ],
     cons: [
-      'Premium pool depletes quickly with casual Opus use',
-      'Multiplier changes can shrink effective capacity silently',
+      'Premium pool raakt snel leeg bij nonchalant Opus-gebruik',
+      'Multiplierwijzigingen kunnen effectieve capaciteit stilletjes verkleinen',
     ],
   },
 ]
@@ -105,10 +105,10 @@ const STATUS_COLORS = {
 export default function KeyFindings() {
   return (
     <section>
-      <h2>Field Notes From Daily Development</h2>
+      <h2>Veldnotities uit dagelijkse development</h2>
       <p style={{ color: 'var(--muted)', fontSize: 12, marginBottom: 24 }}>
-        Practical observations from regular coding days: what sped up delivery, what created friction,
-        and how each tool currently fits the workflow.
+        Praktische observaties uit gewone codingdagen: wat delivery versnelde,
+        wat frictie veroorzaakte en hoe elke tool nu in de workflow past.
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
@@ -161,13 +161,13 @@ export default function KeyFindings() {
 
               {/* Three narrative sections */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', borderBottom: '1px solid var(--border)' }}>
-                <NarrativeBlock label="What I used it for" labelColor="var(--accent)" border>
+                <NarrativeBlock label="Waar ik het voor gebruikte" labelColor="var(--accent)" border>
                   {group.whatFor}
                 </NarrativeBlock>
-                <NarrativeBlock label="What it is good at" labelColor="var(--accent)" border>
+                <NarrativeBlock label="Waar het goed in is" labelColor="var(--accent)" border>
                   {group.goodAt}
                 </NarrativeBlock>
-                <NarrativeBlock label="Concerns I have" labelColor={warnColor}>
+                <NarrativeBlock label="Zorgen die ik heb" labelColor={warnColor}>
                   {group.concerns}
                 </NarrativeBlock>
               </div>
@@ -176,7 +176,7 @@ export default function KeyFindings() {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
                 <div style={{ padding: '14px 20px', borderRight: '1px solid var(--border)' }}>
                   <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 10 }}>
-                    Pros
+                    Pluspunten
                   </div>
                   <ul style={{ margin: 0, paddingLeft: 16, display: 'grid', gap: 5 }}>
                     {group.pros.map(item => (
@@ -186,7 +186,7 @@ export default function KeyFindings() {
                 </div>
                 <div style={{ padding: '14px 20px' }}>
                   <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: warnColor, marginBottom: 10 }}>
-                    Cons
+                    Minpunten
                   </div>
                   <ul style={{ margin: 0, paddingLeft: 16, display: 'grid', gap: 5 }}>
                     {group.cons.map(item => (

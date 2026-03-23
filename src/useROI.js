@@ -15,7 +15,7 @@ export function fmt(n) {
 
 export function fmtHrs(n) {
   const r = Math.round(n * 10) / 10
-  return r + ' hrs'
+  return r + ' uur'
 }
 
 export function beHrs(cost, rate) {
@@ -24,8 +24,8 @@ export function beHrs(cost, rate) {
 
 export function verdictFor(pct) {
   if (pct < 15)  return { label: '✓ GO',   cls: 'verdict-go'   }
-  if (pct < 35)  return { label: '⚠ EDGE', cls: 'verdict-edge' }
-  return               { label: '✗ NO',   cls: 'verdict-no'   }
+  if (pct < 35)  return { label: '⚠ RANDGEVAL', cls: 'verdict-edge' }
+  return               { label: '✗ NEE',   cls: 'verdict-no'   }
 }
 
 export function costColorFor(pct) {

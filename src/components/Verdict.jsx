@@ -1,39 +1,39 @@
 const VERDICTS = [
   {
     tool: 'Cursor',
-    badge: 'Avoid for teams',
+    badge: 'Vermijden voor teams',
     badgeType: 'danger',
     summary:
-      'Once the included team cap is exhausted, Cursor effectively becomes a bare-code editor. Autocomplete stops, premium model access drops, and the fallback experience is a significant step down from what the tool promises. In practice, teams hit this wall within days of a sprint starting. Compounding that, Cursor has a track record of adjusting pricing and rate structures with limited notice, creating real planning risk for anyone budgeting capacity ahead of a delivery cycle.',
+      'Zodra de inbegrepen teamcap op is, wordt Cursor in de praktijk een kale code-editor. Autocomplete stopt, premium modeltoegang valt weg en de fallback-ervaring is duidelijk slechter dan wat de tool belooft. In de praktijk lopen teams hier vaak al binnen enkele dagen van een sprint tegenaan. Daarbovenop past Cursor prijzen en tariefstructuren soms met beperkte aankondiging aan, wat echte planningsrisico\'s geeft voor teams die capaciteit vooraf begroten.',
     recommendation:
-      'Do not use as a default team tool. Revisit only if per-seat billing transparency and predictable monthly caps are introduced.',
+      'Niet gebruiken als standaard teamtool. Alleen opnieuw beoordelen als er transparante per-seat facturatie en voorspelbare maandcaps komen.',
   },
   {
     tool: 'Codex (ChatGPT Plus)',
-    badge: 'Keep — async work only',
+    badge: 'Behouden - alleen async werk',
     badgeType: 'warn',
     summary:
-      'Codex is a genuinely useful tool for background and async tasks: repo-wide search, repetitive refactors, and queued edits that run while primary implementation continues in the foreground. For high-reasoning work it does not reach Opus-class output quality, but it handles Sonnet-level tasks reliably. The current 2x rate period is a bonus, and notably, even under regular use the resource monitors have not come close to 50% utilisation — meaning there is headroom to absorb more async workload before capacity becomes a concern.',
+      'Codex is echt nuttig voor achtergrond- en async taken: repo-breed zoeken, repetitieve refactors en edits in de wachtrij terwijl primaire implementatie op de voorgrond doorgaat. Voor werk met zwaar redeneervermogen haalt het niet het niveau van Opus, maar taken op Sonnet-niveau verwerkt het betrouwbaar. De huidige 2x-periode is een bonus en opvallend genoeg zijn de resource monitors zelfs bij normaal gebruik nog niet in de buurt van 50% benutting gekomen. Er is dus nog ruimte om meer async werk op te nemen voor capaciteit een probleem wordt.',
     recommendation:
-      'Keep in the stack for bounded, async, low-interruption tasks. Treat the 2x rate as a temporary upside, not a baseline, and monitor for the transition to standard pricing.',
+      'Behouden in de stack voor afgebakende, async taken met weinig onderbreking. Zie de 2x-rate als tijdelijk voordeel, niet als baseline, en let op de overgang naar standaardprijzen.',
   },
   {
     tool: 'GitHub Copilot Pro',
-    badge: 'Strong daily base',
+    badge: 'Sterke dagelijkse basis',
     badgeType: 'accent',
     summary:
-      'Copilot delivers autocomplete that is on par with Cursor in day-to-day use — the in-editor experience is equally fluid. Because of how its token and request limits are structured, premium model capacity also stretches at least as long as comparable Cursor usage patterns, often further. The included model selection (Sonnet, Opus, Codex, Mini) covers most task types without constantly burning the premium request pool.',
+      'Copilot levert autocomplete die in dagelijks gebruik vergelijkbaar is met Cursor; de in-editor ervaring is even vloeiend. Door de manier waarop token- en requestlimieten zijn ingericht, rekt premium modelcapaciteit minstens zo lang als vergelijkbare Cursor-gebruikspatronen, vaak langer. De inbegrepen modelselectie (Sonnet, Opus, Codex, Mini) dekt de meeste taaktypen zonder voortdurend de premium request-pool leeg te trekken.',
     recommendation:
-      'Use as the primary IDE autocomplete layer. Pair with Claude Pro for a complete, portable developer workflow (see Recommended Stack below).',
+      'Gebruik dit als primaire IDE-autocompletelaag. Combineer met Claude Pro voor een complete, portable developerworkflow.',
   },
   {
     tool: 'Claude Pro',
-    badge: 'Pair with Copilot',
+    badge: 'Combineren met Copilot',
     badgeType: 'accent',
     summary:
-      'Claude Pro is best understood as the reasoning and agentic layer that Copilot alone cannot fully cover. Copilot\'s premium request pool, while generous, is finite — and when it runs low, having Claude Pro as the continuity layer means complex reasoning, architecture work, and longer multi-turn sessions remain uninterrupted. The two products complement each other structurally: Copilot handles autocomplete and light inline tasks, Claude handles depth and continuity. Together they eliminate the single-provider risk that makes relying on either tool alone fragile.',
+      'Claude Pro werkt het best als de redeneer- en agentlaag die Copilot alleen niet volledig afdekt. De premium request-pool van Copilot is royaal maar eindig. Als die terugloopt, zorgt Claude Pro als continuiteitslaag ervoor dat complex redeneerwerk, architectuurwerk en langere multi-turn sessies niet stilvallen. De twee producten vullen elkaar structureel aan: Copilot doet autocomplete en lichte inline taken, Claude doet diepte en continuiteit. Samen verkleinen ze het single-provider risico dat elke losse tool kwetsbaar maakt.',
     recommendation:
-      'Run alongside Copilot Pro as the persistent reasoning baseline. This pairing covers the full developer workflow at a combined cost well below most team-tier alternatives.',
+      'Gebruik naast Copilot Pro als vaste redeneerbasis. Deze combinatie dekt de volledige developerworkflow tegen een gezamenlijke kost die ruim onder de meeste team-tier alternatieven ligt.',
   },
 ]
 
@@ -46,10 +46,11 @@ const STATUS_COLORS = {
 export default function Verdict() {
   return (
     <section id="verdict" className="chapter">
-      <h2>Verdict</h2>
+      <h2>Oordeel</h2>
       <p className="chapter-lead">
-        Based on hands-on daily use, model quality, cost predictability, and how each tool behaves
-        when limits are reached, here is our current recommendation for a practical team stack.
+        Op basis van dagelijks praktijkgebruik, modelkwaliteit,
+        kostenvoorspelbaarheid en gedrag bij het raken van limieten, is dit nu
+        onze aanbeveling voor een praktische teamstack.
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 24, marginBottom: 40 }}>
@@ -100,7 +101,7 @@ export default function Verdict() {
                 <div
                   style={{ fontSize: 12, fontWeight: 500, color: STATUS_COLORS[item.badgeType], marginBottom: 4 }}
                 >
-                  Assessment
+                  Beoordeling
                 </div>
                 <p style={{ margin: 0, fontSize: 12, color: 'var(--muted)', lineHeight: 1.7 }}>
                   {item.summary}
@@ -114,7 +115,7 @@ export default function Verdict() {
                 <div
                   style={{ fontSize: 12, fontWeight: 500, color: 'var(--accent)', marginBottom: 4 }}
                 >
-                  Recommendation
+                  Aanbeveling
                 </div>
                 <p style={{ margin: 0, fontSize: 12, color: 'var(--muted)', lineHeight: 1.7 }}>
                   {item.recommendation}
@@ -142,7 +143,7 @@ export default function Verdict() {
             fontWeight: 600,
           }}
         >
-          Recommended Stack
+          Aanbevolen stack
         </div>
         <div
           style={{
@@ -153,9 +154,9 @@ export default function Verdict() {
           }}
         >
           {[
-            { label: 'GitHub Copilot Pro', price: '$10 / mo', role: 'IDE autocomplete + inline tasks' },
-            { label: 'Claude Pro',         price: '$20 / mo', role: 'Deep reasoning + workflow continuity' },
-            { label: 'Codex (Plus)',       price: '$20 / mo', role: 'Async background agent work' },
+            { label: 'GitHub Copilot Pro', price: '$10 / mnd', role: 'IDE-autocomplete + inline taken' },
+            { label: 'Claude Pro',         price: '$20 / mnd', role: 'Diep redeneren + workflowcontinuiteit' },
+            { label: 'Codex (Plus)',       price: '$20 / mnd', role: 'Async achtergrondwerk met agents' },
           ].map(item => (
             <div
               key={item.label}
@@ -172,12 +173,13 @@ export default function Verdict() {
           ))}
         </div>
         <p style={{ margin: 0, fontSize: 12, color: 'var(--muted)', lineHeight: 1.7 }}>
-          At <strong style={{ color: 'var(--fg)' }}>$50 / month per developer</strong>, this stack
-          covers autocomplete, inline assistance, deep reasoning, and async agent execution — without
-          shared team caps, unpredictable overages, or single-provider risk. Copilot and Claude Pro
-          are structurally complementary: when one limit window is running low, the other carries
-          continuity. Codex handles background workloads that would otherwise interrupt focused
-          implementation time.
+          Bij <strong style={{ color: 'var(--fg)' }}>$50 per maand per ontwikkelaar</strong> dekt deze
+          stack autocomplete, inline hulp, diep redeneren en async agentuitvoering
+          zonder gedeelde teamcaps, onvoorspelbare overages of single-provider
+          risico. Copilot en Claude Pro vullen elkaar structureel aan: als het
+          limietvenster van de een leegloopt, bewaart de ander de continuiteit.
+          Codex handelt achtergrondwerk af dat anders gefocuste implementatietijd
+          zou onderbreken.
         </p>
       </div>
     </section>

@@ -3,10 +3,10 @@ import { fmt, fmtHrs } from '../useROI'
 export default function MetricsRow({ rate, hoursSaved, valueSaved, roi }) {
   return (
     <div className="metrics-row">
-      <Metric label="Your Hourly Rate"     value={`€${rate}`}              sub="per hour billed" />
-      <Metric label="Hours Saved / Month"  value={fmtHrs(hoursSaved)}      sub="at selected gain %" />
-      <Metric label="Value Saved / Month"  value={fmt(valueSaved)}         sub="at your hourly rate" />
-      <Metric label="ROI vs €30/mo tool"   value={`${Math.round(roi)}×`}   sub="return on spend" />
+      <Metric label="Jouw uurtarief"       value={`€${rate}`}              sub="per gedeclareerd uur" />
+      <Metric label="Bespaarde uren / maand"  value={fmtHrs(hoursSaved)}   sub="bij de gekozen winst %" />
+      <Metric label="Bespaarde waarde / maand" value={fmt(valueSaved)}     sub="tegen jouw uurtarief" />
+      <Metric label="ROI vs tool van €30/mnd" value={`${Math.round(roi)}×`} sub="rendement op kosten" />
     </div>
   )
 }

@@ -3,174 +3,174 @@ export const TOOL_CONFIG = [
   {
     key: "claudePro",
     label: "Claude Team {$30/user/mo}",
-    sub: "Business team plan",
+    sub: "Zakelijk teamplan",
     usd: "$30",
     eur: 28,
     modelUsed: "Claude Sonnet 4.6, Claude Opus 4.6",
     modelEquivalent:
-      "Native Claude stack (Sonnet = speed, Opus = deeper reasoning)",
-    workloadProfile: "Sonnet for fast flow, Opus for harder reasoning",
+      "Native Claude-stack (Sonnet = snelheid, Opus = dieper redeneren)",
+    workloadProfile: "Sonnet voor snelle flow, Opus voor zwaarder redeneerwerk",
     limits:
-      "Team: ~225+ messages/5h for short chats (5x Pro quota); priority access; resets every 5h; admin console, SSO, centralized billing",
+      "Team: ~225+ berichten/5u voor korte chats (5x Pro-quota); priority access; reset elke 5u; adminconsole, SSO, centrale facturatie",
     burnRate:
-      "Medium: larger headroom than Pro; Opus and long-context chats still consume quota faster",
-    limitHit: "Warning at low remaining capacity, then blocked until 5h reset",
-    ideCompletionsAtLimit: "No - no native IDE autocomplete in this plan",
-    modelsAfterLimit: "None until the 5-hour window resets",
-    risk: "Low - fixed per-seat pricing",
+      "Gemiddeld: meer ruimte dan Pro; Opus en chats met lange context verbruiken quota nog steeds sneller",
+    limitHit: "Waarschuwing bij lage resterende capaciteit, daarna geblokkeerd tot de reset na 5u",
+    ideCompletionsAtLimit: "Nee - geen native IDE-autocomplete in dit plan",
+    modelsAfterLimit: "Geen tot het venster van 5 uur reset",
+    risk: "Laag - vaste prijs per seat",
     riskLevel: "accent",
   },
   {
     key: "claudeTeamPremium",
     label: "Claude Team — Premium Seat {$100/user/mo}",
-    sub: "Max 5x capacity on a Team plan",
+    sub: "Max 5x-capaciteit binnen een Team-plan",
     usd: "$100",
     eur: 95,
     modelUsed: "Claude Sonnet 4.6, Claude Opus 4.6",
-    modelEquivalent: "Native Claude stack at Max-tier session budget",
+    modelEquivalent: "Native Claude-stack met sessiebudget van de Max-tier",
     workloadProfile:
-      "High reasoning depth with much larger usable session budget; suited for heavy daily agentic use",
+      "Veel redeneerdiepte met veel groter bruikbaar sessiebudget; geschikt voor zwaar dagelijks agentgebruik",
     limits:
-      "Max 5x seat: ~225+ messages/5h (5x Pro base, same as Claude Max 5x); priority access; resets every 5h; full Team admin console, SSO, centralized billing",
+      "Max 5x-seat: ~225+ berichten/5u (5x Pro-basis, gelijk aan Claude Max 5x); priority access; reset elke 5u; volledige Team-adminconsole, SSO, centrale facturatie",
     burnRate:
-      "Medium: much higher headroom than base Team seat, but heavy Opus sessions and long contexts still drain faster",
+      "Gemiddeld: veel meer ruimte dan de basis Team-seat, maar zware Opus-sessies en lange contexten lopen nog steeds sneller leeg",
     limitHit:
-      "Hit session cap and wait for 5h reset; no overage — you stay within the seat tier",
-    modelsAfterLimit: "None until the 5-hour window resets",
-    risk: "Low - fixed per-seat pricing",
+      "Je raakt de sessiecap en wacht op reset na 5u; geen overage, je blijft binnen de seat-tier",
+    modelsAfterLimit: "Geen tot het venster van 5 uur reset",
+    risk: "Laag - vaste prijs per seat",
     riskLevel: "accent",
   },
   // ChatGPT
   {
     key: "codex",
     label: "ChatGPT Team {$30/user/mo}",
-    sub: "Business team plan — includes Codex",
+    sub: "Zakelijk teamplan - inclusief Codex",
     usd: "$30",
     eur: 28,
-    modelUsed: "GPT-5.3-Codex (medium/high), GPT-5.1-Codex-Mini (simple tasks)",
-    modelEquivalent: "Closest practical equivalent: Claude Sonnet 4.6 class",
+    modelUsed: "GPT-5.3-Codex (medium/high), GPT-5.1-Codex-Mini (simpele taken)",
+    modelEquivalent: "Dichtstbijzijnde praktische equivalent: klasse Claude Sonnet 4.6",
     workloadProfile:
-      "Fast enough for iteration, stronger reasoning in high mode",
+      "Snel genoeg voor iteratie, sterker redeneervermogen in high mode",
     limits:
-      "Team Codex: ~90-450 local msgs/5h or ~20-120 cloud tasks/5h (2x Plus quota), weekly cap applies; 5.1-Codex-Mini gives ~4x local capacity",
+      "Team Codex: ~90-450 lokale berichten/5u of ~20-120 cloudtaken/5u (2x Plus-quota), wekelijkse cap van toepassing; 5.1-Codex-Mini geeft ~4x lokale capaciteit",
     burnRate:
-      "Medium-High: high mode and long agent tasks burn quota much faster than mini",
+      "Gemiddeld-hoog: high mode en lange agenttaken verbruiken quota veel sneller dan mini",
     ideCompletionsAtLimit:
-      "No - Codex stops at included cap (resume after reset or paid credits)",
+      "Nee - Codex stopt bij de inbegrepen cap (gaat weer verder na reset of betaalde credits)",
     modelsAfterLimit:
-      "None on included quota; same Codex models resume only after reset or paid credits",
-    risk: "Low - fixed per-seat pricing; data privacy, no training on conversations",
+      "Geen binnen het inbegrepen quota; dezelfde Codex-modellen komen pas terug na reset of betaalde credits",
+    risk: "Laag - vaste prijs per seat; dataprivacy, geen training op gesprekken",
     riskLevel: "accent",
   },
   {
     key: "chatgptPro",
     label: "ChatGPT Enterprise {~$60/user/mo}",
-    sub: "Custom contract pricing — indicative",
+    sub: "Prijs via maatwerkcontract - indicatief",
     usd: "~$60",
     eur: 57,
     modelUsed:
       "GPT-5.3-Codex, GPT-5.1-Codex-Mini, top-tier ChatGPT models, extended 128k context",
     modelEquivalent:
-      "Frontier GPT class with enterprise-grade controls and higher throughput",
+      "Frontier GPT-klasse met enterprise-controls en hogere throughput",
     workloadProfile:
-      "Very high throughput for sustained heavy usage; strong reasoning with no meaningful soft caps",
+      "Zeer hoge throughput voor langdurig zwaar gebruik; sterk redeneren zonder betekenisvolle soft caps",
     limits:
-      "Enterprise: very high usage limits (no fixed message cap on core models under fair use); extended 128k context windows; full Codex access; SOC 2 Type II, SAML SSO, SCIM provisioning, domain verification, private workspace, advanced usage analytics",
+      "Enterprise: zeer hoge gebruikslimieten (geen vaste berichtencap op kernmodellen onder fair use); uitgebreide contextvensters van 128k; volledige Codex-toegang; SOC 2 Type II, SAML SSO, SCIM provisioning, domeinverificatie, private workspace, geavanceerde usage analytics",
     burnRate:
-      "Low relative to limits: effectively uncapped on included models; Codex cloud tasks still count toward weekly cap",
+      "Laag ten opzichte van de limieten: inbegrepen modellen zijn praktisch ongelimiteerd; Codex-cloudtaken tellen nog wel mee voor de wekelijkse cap",
     ideCompletionsAtLimit:
-      "No - Codex IDE agent stops at weekly cap (resume after reset or paid credits)",
+      "Nee - de Codex IDE-agent stopt bij de wekelijkse cap (gaat weer verder na reset of betaalde credits)",
     modelsAfterLimit:
-      "Core GPT models remain available; Codex cloud tasks pause until weekly reset",
-    risk: "Medium - custom contract, pricing varies by org size and negotiation",
+      "Kernmodellen van GPT blijven beschikbaar; Codex-cloudtaken pauzeren tot de wekelijkse reset",
+    risk: "Gemiddeld - maatwerkcontract, prijs hangt af van org-grootte en onderhandeling",
     riskLevel: "warn",
   },
   // GitHub Copilot
   {
     key: "copilot",
     label: "GitHub Copilot Business {$19/user/mo}",
-    sub: "300 premium requests + enterprise controls",
+    sub: "300 premium requests + enterprise-controls",
     usd: "$19",
     eur: 18,
     modelUsed:
       "Claude Sonnet 4.6, Claude Opus 4.6, GPT-5.3-Codex, GPT-5.1-Codex-Mini",
-    modelEquivalent: "Multi-provider model router with business data controls",
+    modelEquivalent: "Modelrouter met meerdere providers en zakelijke datacontroles",
     workloadProfile:
-      "Very fast for routine coding; premium models for reasoning spikes",
+      "Zeer snel voor routinecoding; premiummodellen voor pieken in redeneerwerk",
     limits:
-      "Business: 300 premium requests/month (reset on 1st). Included models unlimited chat/completions. Adds: IP indemnity, no training on your code, SAML SSO, policy management, content exclusions, audit logs",
+      "Business: 300 premium requests/maand (reset op de 1e). Inbegrepen modellen hebben ongelimiteerde chat/completions. Extra's: IP-indemnity, geen training op je code, SAML SSO, beleidsbeheer, content exclusions, auditlogs",
     limitHit:
-      "Premium model requests stop unless paid overage is enabled; fall back to included models",
+      "Requests naar premiummodellen stoppen tenzij betaalde overage actief is; fallback naar inbegrepen modellen",
     ideCompletionsAtLimit:
-      "Yes - base Copilot autocomplete/chat stays on with active Business subscription",
+      "Ja - basis Copilot-autocomplete/chat blijft actief met een Business-abonnement",
     modelsAfterLimit:
-      "Included Copilot models remain; premium models (Sonnet/Opus/Codex family) stop",
-    risk: "Low - fixed per-seat pricing",
+      "Inbegrepen Copilot-modellen blijven; premiummodellen (Sonnet/Opus/Codex-familie) stoppen",
+    risk: "Laag - vaste prijs per seat",
     riskLevel: "accent",
   },
   {
     key: "copilotEnterprise",
     label: "GitHub Copilot Enterprise {$39/user/mo}",
-    sub: "All Business features + custom models",
+    sub: "Alle Business-features + custom modellen",
     usd: "$39",
     eur: 37,
     modelUsed:
       "Claude Sonnet 4.6, Claude Opus 4.6, GPT-5.3-Codex, GPT-5.1-Codex-Mini, org fine-tuned models",
     modelEquivalent:
-      "Business multi-provider router + custom/fine-tuned org models",
+      "Zakelijke modelrouter met meerdere providers + custom/fine-tuned org-modellen",
     workloadProfile:
-      "All Copilot Business capabilities plus knowledge bases, custom models, and deeper GitHub integration",
+      "Alle Copilot Business-mogelijkheden plus knowledge bases, custom modellen en diepere GitHub-integratie",
     limits:
-      "Enterprise: 1000 premium requests/month per user (reset on 1st). Adds: knowledge bases for codebase context, custom fine-tuned models, GitHub.com Copilot Chat, extended context windows, enterprise audit logs and usage reporting, IP indemnity, SAML SSO",
+      "Enterprise: 1000 premium requests/maand per gebruiker (reset op de 1e). Extra's: knowledge bases voor codebasecontext, custom fine-tuned modellen, GitHub.com Copilot Chat, uitgebreide contextvensters, enterprise auditlogs en usage reporting, IP-indemnity, SAML SSO",
     limitHit:
-      "Premium model requests stop unless paid overage is enabled; fall back to included models",
+      "Requests naar premiummodellen stoppen tenzij betaalde overage actief is; fallback naar inbegrepen modellen",
     ideCompletionsAtLimit:
-      "Yes - base Copilot autocomplete/chat stays on with active Enterprise subscription",
+      "Ja - basis Copilot-autocomplete/chat blijft actief met een Enterprise-abonnement",
     modelsAfterLimit:
-      "Included and org fine-tuned models remain; premium request pool models stop",
-    risk: "Low - fixed per-seat pricing",
+      "Inbegrepen en org fine-tuned modellen blijven; modellen uit de premium request-pool stoppen",
+    risk: "Laag - vaste prijs per seat",
     riskLevel: "accent",
   },
   // Cursor
   {
     key: "cursor",
     label: "Cursor Teams (base only) {$40/mo}",
-    sub: "$40/mo, no overages",
+    sub: "$40/mnd, geen overages",
     usd: "$40",
     eur: 38,
     modelUsed: "Sonnet, Opus, Codex, Codex Mini, Composer 1, Auto",
-    modelEquivalent: "Mixed premium pool + Cursor orchestration",
+    modelEquivalent: "Gemengde premium-pool + Cursor-orkestratie",
     workloadProfile:
-      "Strong interactive speed; reasoning depends on selected model",
+      "Sterke interactieve snelheid; redeneervermogen hangt af van het gekozen model",
     burnRate:
-      "High: Opus, long contexts, Composer loops, and manual non-Auto model use burn fastest",
+      "Hoog: Opus, lange contexten, Composer-loops en handmatig gebruik van niet-Auto-modellen verbruiken het snelst",
     limitHit:
-      "At included cap, you continue on Auto; selected premium models require usage-based billing",
+      "Na de inbegrepen cap ga je verder op Auto; gekozen premiummodellen vragen gebruiksafhankelijke facturatie",
     ideCompletionsAtLimit:
-      "Conditional - autocomplete continues until spending cap is reached",
+      "Voorwaardelijk - autocomplete blijft actief tot de bestedingslimiet is bereikt",
     modelsAfterLimit:
-      "Auto/non-premium models remain; selected premium models require usage billing",
-    risk: "Overages unpredictable",
+      "Auto- en niet-premiummodellen blijven; gekozen premiummodellen vragen gebruiksfacturatie",
+    risk: "Overages zijn onvoorspelbaar",
     riskLevel: "warn",
   },
   {
     key: "cursorMax",
     label: "Cursor Teams + full overages {$160/mo max}",
-    sub: "$40 base + $120 cap",
+    sub: "$40 basis + $120 cap",
     usd: "$160 max",
     eur: 152,
     modelUsed: "Sonnet, Opus, Codex, Codex Mini, Composer 1, Auto",
-    modelEquivalent: "Highest available Cursor model set",
-    workloadProfile: "Fast and flexible, aimed at sustained heavy usage",
+    modelEquivalent: "Hoogste beschikbare Cursor-modelset",
+    workloadProfile: "Snel en flexibel, gericht op langdurig zwaar gebruik",
     burnRate:
-      "Very high: heavy agent workflows consume usage budget quickly once over included requests",
+      "Zeer hoog: zware agentworkflows verbruiken het usage-budget snel zodra je boven het inbegrepen gebruik uitkomt",
     limitHit:
-      "Usage continues until your spending cap is hit, then premium requests stop",
+      "Gebruik loopt door tot je bestedingslimiet is bereikt; daarna stoppen premium requests",
     ideCompletionsAtLimit:
-      "Conditional - autocomplete stays available until spending cap is reached",
+      "Voorwaardelijk - autocomplete blijft beschikbaar tot de bestedingslimiet is bereikt",
     modelsAfterLimit:
-      "Auto/non-premium models remain; selected premium models stop at spending cap",
-    risk: "High - variable + team shared cap",
+      "Auto- en niet-premiummodellen blijven; gekozen premiummodellen stoppen bij de bestedingslimiet",
+    risk: "Hoog - variabel + gedeelde teamcap",
     riskLevel: "danger",
   },
 ];

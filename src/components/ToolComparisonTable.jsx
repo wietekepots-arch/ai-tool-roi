@@ -3,24 +3,25 @@ import { TOOL_CONFIG } from '../config/tools'
 export default function ToolComparisonTable() {
   return (
     <section>
-      <h2>Tool Limits and Model Comparison</h2>
+      <h2>Vergelijking van toollimieten en modellen</h2>
       <p style={{ color: 'var(--muted)', fontSize: 12, marginBottom: 16 }}>
-        Side-by-side view of model class, speed vs reasoning profile, and how fast each setup burns through limits.
+        Overzicht naast elkaar van modelklasse, snelheid versus redeneervermogen
+        en hoe snel elke setup zijn limieten verbruikt.
       </p>
 
       <div className="comparison-table-wrap">
         <table className="comparison-table">
           <thead>
             <tr>
-              <th>Tool (Pricing Tier)</th>
-              <th>Model Used</th>
-              <th>Closest Equivalent</th>
-              <th>Fast vs High Reasoning</th>
-              <th>Rate Limits</th>
-              <th>Burn Through Limits</th>
-              <th>What Happens at Limit</th>
-              <th>IDE Autocomplete After Cap</th>
-              <th>Models Available After Cap</th>
+              <th>Tool (prijstier)</th>
+              <th>Gebruikt model</th>
+              <th>Dichtstbijzijnde equivalent</th>
+              <th>Snel versus zwaar redeneren</th>
+              <th>Gebruikslimieten</th>
+              <th>Verbruik van limieten</th>
+              <th>Wat gebeurt er op de limiet</th>
+              <th>IDE-autocomplete na de limiet</th>
+              <th>Beschikbare modellen na de limiet</th>
             </tr>
           </thead>
           <tbody>
@@ -44,9 +45,10 @@ export default function ToolComparisonTable() {
         </table>
       </div>
       <p style={{ color: 'var(--muted)', fontSize: 11, marginTop: 10 }}>
-        <strong>Legend:</strong> <strong>Yes</strong> = remains available on the paid plan.{' '}
-        <strong>Conditional</strong> = available only until spending cap/usage billing limit is reached.{' '}
-        <strong>No</strong> = blocked until reset, upgrade, or paid credits.
+        <strong>Legenda:</strong> <strong>Ja</strong> = blijft beschikbaar binnen
+        het betaalde plan. <strong>Voorwaardelijk</strong> = alleen beschikbaar
+        tot de bestedingslimiet of gebruiksfacturatie is bereikt.{' '}
+        <strong>Nee</strong> = geblokkeerd tot reset, upgrade of betaalde credits.
       </p>
     </section>
   )

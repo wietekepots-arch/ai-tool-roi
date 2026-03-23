@@ -1,34 +1,35 @@
 const RESEARCH = [
-  { source: 'GitHub internal study',       gain: '55% faster',           funder: 'Microsoft/GitHub', task: 'Scoped single tasks',          type: 'vendor'      },
-  { source: 'Google / Sundar Pichai',      gain: '~10% velocity',        funder: 'Google',           task: 'Engineering org-wide',         type: 'vendor'      },
-  { source: 'Microsoft 2025 market study', gain: '3.5× ROI average',     funder: 'Microsoft',        task: 'M365 + Copilot users',         type: 'vendor'      },
-  { source: 'METR RCT (Jul 2025)',         gain: '−19% (slower)',        funder: 'Independent',      task: 'Mature repos, experienced devs',type: 'independent' },
-  { source: 'Faros AI (10,000+ devs)',     gain: 'More code, more bugs', funder: 'Independent',      task: 'Real teams, delivery metrics', type: 'independent' },
-  { source: 'Stack Overflow Survey 2025',  gain: '52% say "positive"',   funder: 'Independent',      task: 'Self-reported, 65,000 devs',   type: 'mixed'       },
-  { source: 'Index.dev 2026 aggregation',  gain: '10–30% average',       funder: 'Mixed sources',    task: 'Coding, testing, docs',        type: 'mixed'       },
+  { source: 'Intern GitHub-onderzoek',       gain: '55% sneller',              funder: 'Microsoft/GitHub', task: 'Afgebakende losse taken',        type: 'vendor'      },
+  { source: 'Google / Sundar Pichai',        gain: '~10% meer snelheid',       funder: 'Google',           task: 'Hele engineeringorganisatie',   type: 'vendor'      },
+  { source: 'Microsoft marktonderzoek 2025', gain: 'Gemiddeld 3,5x ROI',       funder: 'Microsoft',        task: 'M365 + Copilot-gebruikers',     type: 'vendor'      },
+  { source: 'METR RCT (jul 2025)',           gain: '−19% (trager)',            funder: 'Onafhankelijk',    task: 'Volwassen repo\'s, ervaren devs',type: 'independent' },
+  { source: 'Faros AI (10.000+ devs)',       gain: 'Meer code, meer bugs',     funder: 'Onafhankelijk',    task: 'Echte teams, delivery-metrics', type: 'independent' },
+  { source: 'Stack Overflow Survey 2025',    gain: '52% zegt "positief"',      funder: 'Onafhankelijk',    task: 'Zelfrapportage, 65.000 devs',   type: 'mixed'       },
+  { source: 'Index.dev aggregatie 2026',     gain: 'Gemiddeld 10-30%',         funder: 'Gemengde bronnen', task: 'Coding, testen, docs',          type: 'mixed'       },
 ]
 
 const GAIN_COLOR   = { vendor: 'accent', independent: 'danger', mixed: 'warn' }
 const BADGE_CLASS  = { vendor: 'badge badge-vendor', independent: 'badge badge-independent', mixed: 'badge badge-mixed' }
-const BADGE_LABEL  = { vendor: 'Vendor — use with caution', independent: 'Independent — most rigorous', mixed: 'Mixed — aggregated' }
+const BADGE_LABEL  = { vendor: 'Vendor - voorzichtig gebruiken', independent: 'Onafhankelijk - meest streng', mixed: 'Gemengd - geaggregeerd' }
 
 export default function ResearchTable() {
   return (
     <section>
-      <h2>Research Reality Check</h2>
+      <h2>Reality check op onderzoek</h2>
       <p style={{ color: 'var(--muted)', fontSize: 12, marginBottom: 16 }}>
-        The productivity gain % you use in your business case determines whether it's credible.
-        Here's what the research actually says — and who funded it.
+        Het percentage productiviteitswinst dat je gebruikt in je businesscase
+        bepaalt of die geloofwaardig is. Dit is wat het onderzoek echt zegt en
+        wie het heeft gefinancierd.
       </p>
 
       <table>
         <thead>
           <tr>
-            <th>Study / Source</th>
-            <th>Claimed Gain</th>
-            <th>Funded by</th>
-            <th>Task Type</th>
-            <th>Credibility</th>
+            <th>Studie / bron</th>
+            <th>Geclaimde winst</th>
+            <th>Gefinancierd door</th>
+            <th>Type taak</th>
+            <th>Geloofwaardigheid</th>
           </tr>
         </thead>
         <tbody>
@@ -45,11 +46,13 @@ export default function ResearchTable() {
       </table>
 
       <div className="note" style={{ marginTop: 16 }}>
-        <strong>Recommended % to use with your manager: 15–20%.</strong> This sits in the middle
-        of the credible range, reflects real-world (not lab) conditions, and holds up to scrutiny
-        if challenged. The METR study's −19% finding applies specifically to{' '}
-        <em>experienced developers on mature codebases</em> — relevant for you, but can be countered
-        by noting that async agents (like Codex) offload background tasks rather than interrupt your flow.
+        <strong>Aanbevolen percentage richting je manager: 15-20%.</strong> Dat
+        zit midden in de geloofwaardige bandbreedte, sluit aan op echte
+        praktijksituaties in plaats van labomstandigheden, en houdt stand als
+        iemand doorvraagt. De METR-uitkomst van -19% geldt specifiek voor{' '}
+        <em>ervaren developers op volwassen codebases</em>. Dat is relevant,
+        maar je kunt daartegenover zetten dat async agents zoals Codex
+        achtergrondtaken overnemen in plaats van je flow te onderbreken.
       </div>
     </section>
   )

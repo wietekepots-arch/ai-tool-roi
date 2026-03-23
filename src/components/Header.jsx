@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 
 const LINKS = [
-  { id: 'why', label: 'Why experiment' },
-  { id: 'landscape', label: 'Tools and trade-offs' },
-  { id: 'baseline', label: 'Baseline ROI' },
-  { id: 'sources', label: 'Sources' },
+  { id: 'why', label: 'Waarom' },
+  { id: 'landscape', label: 'Tools en afwegingen' },
+  { id: 'baseline', label: 'ROI-basis' },
+  { id: 'sources', label: 'Bronnen' },
 ]
 
 export default function Header() {
@@ -59,14 +59,14 @@ export default function Header() {
   return (
     <>
       <header>
-        <div className="tag">Developer Workflow Experiment</div>
+        <div className="tag">Experiment voor developerworkflow</div>
         <h1>
-          AI Tooling Field Notes<br />
-          <em>What helps in real development work?</em>
+          Veldnotities over AI-tooling<br />
+          <em>Wat helpt echt in developmentwerk?</em>
         </h1>
-        <p className="subtitle">Hands-on comparison of tools, trade-offs, and daily workflow impact · March 2026</p>
+        <p className="subtitle">Praktische vergelijking van tools, afwegingen en impact op de dagelijkse workflow · maart 2026</p>
       </header>
-      <nav className="top-nav" aria-label="Page sections">
+      <nav className="top-nav" aria-label="Paginasecties">
         {LINKS.map(link => (
           <a
             key={link.id}
@@ -79,9 +79,9 @@ export default function Header() {
         <button
           className="theme-toggle"
           onClick={() => setTheme(t => t === 'dark' ? 'light' : 'dark')}
-          aria-label="Toggle theme"
+          aria-label="Thema wisselen"
         >
-          {theme === 'dark' ? 'Light mode' : 'Dark mode'}
+          {theme === 'dark' ? 'Lichte modus' : 'Donkere modus'}
         </button>
       </nav>
     </>
