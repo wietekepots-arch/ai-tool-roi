@@ -2,6 +2,12 @@
 
 Interactive business case for justifying AI developer tooling costs, based on hourly rate rather than salary.
 
+This repo is configured to deploy to GitHub Pages at:
+
+```text
+https://<your-github-username>.github.io/ai-tool-roi/
+```
+
 ## Stack
 
 - React 18 + Vite 5
@@ -27,6 +33,7 @@ npm run build
 Deployment is fully automated via `.github/workflows/deploy.yml`.
 
 Every push to `main` triggers:
+
 1. `npm ci` — clean install
 2. `npm run build` — Vite builds to `/dist`
 3. `/dist` is uploaded and deployed to GitHub Pages
@@ -34,20 +41,34 @@ Every push to `main` triggers:
 ### One-time setup (do this once)
 
 1. Push this repo to GitHub
-2. Go to **Settings → Pages**
-3. Under *Source*, select **GitHub Actions**
-4. That's it — the next push to `main` will deploy automatically
+2. Make sure the GitHub repository name is `ai-tool-roi`
+3. Go to **Settings → Pages**
+4. Under _Source_, select **GitHub Actions**
+5. That's it — the next push to `main` will deploy automatically
 
-### Important: update `base` in vite.config.js
+### Vite base path
 
 ```js
 // vite.config.js
-base: '/your-repo-name/',   // must match your GitHub repo name exactly
+const repoName = "ai-tool-roi";
+base: `/${repoName}/`;
 ```
+
+If you publish under a different repo name, update `repoName` in `vite.config.js`.
 
 If you're using a custom domain, set `base: '/'` instead.
 
 Your site will be live at:
+
 ```
-https://<your-github-username>.github.io/<your-repo-name>/
+https://<your-github-username>.github.io/ai-tool-roi/
 ```
+
+## Publish from this machine
+
+```bash
+git remote add origin https://github.com/<your-github-username>/ai-tool-roi.git
+git push -u origin main
+```
+
+Then enable **Settings → Pages → GitHub Actions** if it is not already enabled.
