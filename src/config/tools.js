@@ -137,52 +137,54 @@ export const TOOL_CONFIG = [
   {
     key: "googleAntigravity",
     label: "Google Antigravity {$0/user/mo tijdens evaluatie}",
-    sub: "Laagdrempelig mee te nemen naast onze bestaande Google Workspace-stack",
+    sub: "Nuttige add-on als we via Google Workspace toch credits of planruimte hebben",
     usd: "$0",
     eur: 0,
     modelUsed:
       "Gemini 3 en Gemini 2.5 in previewkanalen, plus browser-agent voor lokale tests",
     modelEquivalent:
-      "Gemini-stack gericht op autocomplete, terminalwerk en browsergestuurde debugging",
+      "Gemini-stack gericht op browsergestuurde debugging, met editor- en terminalhulp als secundaire laag",
     workloadProfile:
-      "Sterk voor browser debugging op localhost, snelle inline completions en editor/terminalflows binnen een Google-native setup",
+      "Vooral interessant als aanvullende tool voor browser debugging op localhost en visuele validatie; niet sterk genoeg als dagelijkse basis omdat autocomplete minder sterk voelt en agents trager reageren dan in gewone VS Code-workflows",
     limits:
       "Individual-plan: $0/maand met onbeperkte Tab completions en Command requests plus genereuze wekelijkse limieten. Voor teamuitrol bestaat een pad via Google Workspace, maar hogere businesscaps hangen van licentie en rollout af.",
     burnRate:
-      "Voor evaluatie gunstig: geen extra seatkosten en genoeg ruimte om echte workflows te testen. De praktische throughput blijft wel minder voorspelbaar dan bij Copilot of Claude zolang Google vooral in wekelijkse limieten en previewcapaciteit communiceert.",
+      "Alleen aantrekkelijk als extra toevoeging wanneer er al Google-credits of planruimte zijn. De praktische throughput blijft minder voorspelbaar dan bij Copilot of Claude, en de agentflow voelt in gebruik trager dan in gewone VS Code-workflows.",
     limitHit:
       "Bij het gratis plan wacht je op de reset van de weeklimiet of stap je over naar een betaald plan; er is geen eenvoudige publieke premium-pool zoals bij Copilot.",
     ideCompletionsAtLimit:
       "Nee - gratis editorfuncties pauzeren zodra de weeklimiet op is en hervatten na reset of upgrade",
     modelsAfterLimit:
       "Geen duidelijk gepubliceerde fallbackmatrix; praktische beschikbaarheid hangt af van plan, releasekanaal en quota",
-    risk: "Laag instaprisico, maar limieten en dagelijkse throughput blijven minder transparant",
+    risk: "Geschikt als add-on, niet als primaire dagtool",
     riskLevel: "warn",
   },
   // GitLab
   {
     key: "gitlabDuo",
-    label: "GitLab Duo voor VS Code {Premium/Ultimate + add-on/credits}",
-    usd: "$29+ /user/mo + add-on/credits",
+    label:
+      "GitLab Duo voor VS Code {Premium $29/user/mo + Duo Core, $12 credits}",
+    usd: "$29 /user/mo + usage voor Agent Platform",
     eur: null,
-    eurLabel: "Maatwerk / usage-based",
+    eurLabel: "Premium + usage-based credits",
     modelUsed:
-      "GitLab-managed of self-hosted modellen via AI Gateway; modelkeuze is abstracter dan bij directe modelrouters",
+      "Duo Core Code Suggestions plus GitLab-managed of self-hosted modellen via AI Gateway voor Agent Platform",
     modelEquivalent:
-      "GitLab-native autocomplete en generatie met platformkoppeling in plaats van een expliciete modelcatalogus",
+      "GitLab-native suggestions met platformcontext; minder expliciete modelkeuze dan bij Copilot",
     workloadProfile:
-      "Geschikt voor VS Code-autocomplete en comment-gedreven generatie, vooral in teams die al zwaar op GitLab leunen",
+      "Interessant als GitLab al de primaire deliveryhub is; minder overtuigend als standalone IDE-tool door zwakkere autocomplete en minder directe modelkeuze",
     limits:
-      "Beschikbaar op Premium/Ultimate met Duo Core/Pro/Enterprise. Completioncontext tot 32k tokens, generatiecontext tot 80k tokens; outputlimiet 64 tokens voor completion en 2048 tokens voor generatie.",
+      "Premium SaaS kost $29/user/mo billed annually en bevat Duo Core plus $12 GitLab Credits/user/mo voor Duo Agent Platform. Code Suggestions-context tot 32k tokens, generatiecontext tot 80k tokens; outputlimiet 64 tokens voor completion en 2048 tokens voor generatie.",
     burnRate:
-      "Autocomplete zelf is licht, maar kostenstructuur is minder seat-eenvoudig en hangt af van GitLab-plan, add-ons en in bredere Duo-scenario's credits",
+      "Autocomplete zelf is licht, maar de $12 credits lopen snel leeg bij agentic chat en andere Agent Platform-features; als enige AI-tool is dat krap voor een volledige developerflow",
     limitHit:
-      "Geen eenvoudige publieke resetmatrix voor VS Code-suggesties; gedrag hangt af van Duo-toegang, netwerkroute en organisatiebeleid",
+      "Na verbruik van inbegrepen credits stopt de credit-based Agent Platform-laag tenzij extra credits of on-demand billing actief zijn. Duo Core Code Suggestions valt in een aparte packaginglaag met eigen usage limits, maar GitLab documenteert post-limit gedrag minder helder dan Copilot.",
     ideCompletionsAtLimit:
-      "Voorwaardelijk - afhankelijk van Premium/Ultimate-toegang, Duo-inschakeling en eventuele usage- of beleidsgrenzen",
+      "Voorwaardelijk - als Agent Platform-credits op zijn, stoppen credit-based features; Duo Core Code Suggestions kan blijven werken binnen eigen usage limits, maar het fallbackverhaal is minder transparant dan bij Copilot",
     modelsAfterLimit:
-      "Afhankelijk van GitLab-managed of self-hosted setup; geen publiek vaste fallbacktabel zoals bij Copilot of Claude",
-    risk: "Gemiddeld-hoog - prijsmodel minder transparant dan pure seat-tools",
+      "Geen gratis fallback voor credit-based Agent Platform-features; Duo Core volgt een aparte limitlaag, maar zonder duidelijke publieke fallbackmatrix",
+    risk:
+      "Gemiddeld-hoog - packaging en post-limit gedrag zijn minder voorspelbaar dan bij pure seat-tools",
     riskLevel: "warn",
   },
   // Cursor

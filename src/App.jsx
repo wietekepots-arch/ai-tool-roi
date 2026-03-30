@@ -45,12 +45,14 @@ export default function App() {
                 Meer focus door achtergrondtaken uit te besteden aan async
                 agents.
               </li>
-              <li>Hogere throughput zonder lagere code review-standaarden.</li>
+              <li>
+                Hogere doorontwikkeling zonder lagere code review-standaarden.
+              </li>
             </ul>
           </article>
 
           <article className="intro-card">
-            <h3>Problemen die we nu zien</h3>
+            <h3>Uitdagingen die we nu zien</h3>
             <ul>
               <li>
                 Toolprijzen en quota veranderen snel en zijn lastig te

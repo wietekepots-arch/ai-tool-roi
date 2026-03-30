@@ -91,7 +91,7 @@ export default function Verdict() {
           Rond{" "}
           <strong style={{ color: "var(--text)" }}>
             $79 per gebruiker per maand
-          </strong>
+          </strong>{" "}
           dekt deze combinatie autocomplete, inline hulp, diep redeneren en
           async agentuitvoering zonder gedeelde teamcaps of onvoorspelbare
           overages in een enkele tool te concentreren. Copilot en Claude houden

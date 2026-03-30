@@ -9,6 +9,7 @@
   --danger: #d95f5f;
   --text: #f0f0f0;
   --muted: #808080;
+  --neutral-heading: color-mix(in srgb, #926d3d 72%, #f0f0f0);
   --mono: "DM Mono", monospace;
   --serif: "Fraunces", serif;
   /* RGB channels for rgba() usage */
@@ -30,6 +31,7 @@
   --danger: #c0392b;
   --text: #1a1a1a;
   --muted: #6b6560;
+  --neutral-heading: color-mix(in srgb, #926d3d 88%, #3b2a16);
   --accent-rgb: 42, 101, 74;
   --warn-rgb: 146, 109, 61;
   --danger-rgb: 192, 57, 43;
@@ -97,7 +99,7 @@ h2::before {
   display: inline-block;
   width: 4px;
   height: 20px;
-  background: var(--accent);
+  background: var(--neutral-heading);
   flex-shrink: 0;
 }
 
@@ -228,15 +230,15 @@ header {
 }
 
 .top-nav a:hover {
-  color: var(--accent);
-  border-color: rgba(var(--accent-rgb), 0.35);
-  background: rgba(var(--accent-rgb), 0.07);
+  color: var(--neutral-heading);
+  border-color: color-mix(in srgb, var(--neutral-heading) 35%, var(--border));
+  background: color-mix(in srgb, var(--neutral-heading) 7%, transparent);
 }
 
 .top-nav a.active {
-  color: var(--accent);
-  border-color: rgba(var(--accent-rgb), 0.45);
-  background: rgba(var(--accent-rgb), 0.12);
+  color: var(--neutral-heading);
+  border-color: color-mix(in srgb, var(--neutral-heading) 45%, var(--border));
+  background: color-mix(in srgb, var(--neutral-heading) 12%, transparent);
 }
 
 /* ── Theme toggle ── */
@@ -255,9 +257,9 @@ header {
 }
 
 .theme-toggle:hover {
-  color: var(--accent);
-  border-color: rgba(var(--accent-rgb), 0.35);
-  background: rgba(var(--accent-rgb), 0.07);
+  color: var(--neutral-heading);
+  border-color: color-mix(in srgb, var(--neutral-heading) 35%, var(--border));
+  background: color-mix(in srgb, var(--neutral-heading) 7%, transparent);
 }
 
 /* ── Assumptions panel ── */
@@ -837,7 +839,7 @@ td.muted {
   padding-top: 12px;
   border-top: 1px solid
     color-mix(in srgb, var(--finding-color, var(--accent)) 14%, var(--border));
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.7;
   color: var(--text);
 }
@@ -859,7 +861,7 @@ td.muted {
   font-size: 10px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--finding-color, var(--accent));
+  color: var(--neutral-heading);
 }
 
 .finding-toggle-collapse {
@@ -891,9 +893,7 @@ td.muted {
   border-top: 1px solid var(--border);
 }
 
-.finding-decision-grid {
-  display: grid;
-  grid-template-columns: 1.35fr 1fr;
+.finding-decision-section {
   border-bottom: 1px solid var(--border);
 }
 
@@ -917,6 +917,7 @@ td.muted {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  color: var(--neutral-heading);
 }
 
 .finding-block-copy {
@@ -948,11 +949,11 @@ td.muted {
 }
 
 .finding-points-label-accent {
-  color: var(--accent);
+  color: var(--neutral-heading);
 }
 
 .finding-points-label-warn {
-  color: var(--finding-warn-color, var(--warn));
+  color: var(--neutral-heading);
 }
 
 .finding-points-list {

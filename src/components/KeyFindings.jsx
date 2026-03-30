@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { TOOL_CONFIG } from "../config/tools";
 
 const FINDINGS = [
@@ -26,7 +27,7 @@ const FINDINGS = [
     cons: [
       "Previewquota en beleid kunnen zonder aankondiging veranderen",
       "Minder autonoom wanneer bestandssysteemtoegang beperkt is",
-      "De tijdelijke gratis verdubbeling van de rate limit maakt het lastig om goed te beoordelen of de standaardlimiet daadwerkelijk voldoende is.",
+      "Tijdelijke throughput-boosts kunnen een verkeerd delivery-baseline geven",
     ],
   },
   {
@@ -111,55 +112,59 @@ const FINDINGS = [
   {
     toolKey: "googleAntigravity",
     status: "warn",
-    statusLabel: "Nog in evaluatie",
+    statusLabel: "Aanvulling, geen basis",
     verdict:
-      "Interessante VS Code-kandidaat, maar nog onvoldoende transparant om nu als vaste standaard te kiezen.",
+      "Bewezen niet sterk genoeg als dagelijkse basis, maar wel nuttig als aanvullende tool voor browser debugging wanneer we toch Google-credits of capaciteit hebben.",
     judgmentDetail:
-      "De combinatie van autocomplete, chat en terminalhulp in een Google-stack is aantrekkelijk, vooral voor teams met veel Google Cloud-context. Zolang harde quota, fallback en praktische throughput minder zichtbaar zijn dan bij Copilot of Claude, blijft het lastig om de werkelijke dagelijkse capaciteit betrouwbaar te modelleren.",
+      "Omdat we al in Google Workspace zitten, is dit laagdrempelig om mee te nemen zonder eerst een apart procurement-traject op te tuigen. De echte reden om het erbij te houden zit in browser debugging: localhost testen, UI-fouten reproduceren en walkthroughs terugkijken voelen sterker geïntegreerd dan bij de meeste alternatieven. Daar staat tegenover dat autocomplete voor jou niet heel sterk voelt en dat de agents in de praktijk trager reageren dan in gewone VS Code-workflows. Daarmee is inmiddels wel duidelijk dat dit niet voldoende is als dagelijkse basis, maar eerder een nuttige aanvulling als er toch al Google-credits of planruimte beschikbaar zijn.",
     recommendation:
-      "Alleen verder testen in echte repo's; pas opnemen als limieten, fallback en kwaliteit in dagelijkse flow beter voorspelbaar blijken.",
+      "Alleen aanhouden als aanvullende tool voor browser debugging en Google-native workflows; niet standaardiseren als primaire editor of hoofdstack.",
     whatFor:
-      "Voor gerichte evaluaties van editor-native autocomplete, comment-gedreven codegeneratie en terminalassistentie via Gemini CLI. Vooral relevant als snelle inline hulp en brede Google-integratie belangrijker zijn dan zware multi-agent orchestration.",
+      "Voor browsergestuurde debugging, localhost-validatie en testen van de agentflow over editor, terminal en browser heen. Vooral zinvol als extra tool wanneer we via Google Workspace of een bestaand plan toch al credits of capaciteit beschikbaar hebben.",
     goodAt:
-      "Sterk verhaal voor teams die al in Google Cloud, Firebase of Apigee werken. Een ruime context, autocomplete, chat en terminal in een licentie maken het aantrekkelijk als je een Google-native developerstack wilt testen.",
+      "Sterk in browser debugging en UI-verificatie: de browser-agent kan flows doorlopen, fouten visueel reproduceren en artifacts opleveren die de debugloop versnellen. Juist daar onderscheidt het zich nu het duidelijkst van de rest van de stack, en als aanvullende tool is het logisch om erbij te houden wanneer er toch Google-capaciteit beschikbaar is.",
     concerns:
-      "Publieke informatie over harde IDE-quotacaps en fallbackgedrag is minder concreet dan bij Copilot of Claude. Daardoor is het lastiger om vooraf in te schatten hoeveel dagelijkse throughput je echt koopt en wat er precies gebeurt als je grenzen raakt.",
+      "De editor voelt nog minder volwassen dan de dagelijkse basis van Claude of Copilot: autocomplete is niet heel sterk, agents reageren trager dan in VS Code en limieten, fallback en stabiliteit zijn nog niet consistent genoeg om blind op te plannen. Daardoor is het geen serieuze kandidaat meer voor de primaire dagflow, ook niet als de instapkosten laag blijven.",
     pros: [
-      "Autocomplete, chat en terminalworkflow in een product",
-      "Sterke fit voor teams met veel Google Cloud-context",
-      "Ruim contextvenster voor grotere bestanden en prompts",
+      "Sterk in browser debugging en localhost-validatie",
+      "Past organisatorisch logisch naast een bestaande Google Workspace-stack",
+      "Nuttig als aanvullende tool wanneer er toch Google-credits of capaciteit zijn",
+      "Autocomplete, chat, terminal en browserflow in een product",
     ],
     cons: [
-      "Minder transparante limietcommunicatie dan de meeste directe concurrenten",
-      "Fallback na quota is minder duidelijk vooraf te modelleren",
-      "Nog niet bewezen als vaste dagelijkse basis in deze stack",
+      "Autocomplete voelt zwakker dan in de dagelijkse VS Code-flow",
+      "Agents reageren trager dan in VS Code",
+      "Dagelijkse throughput en fallback zijn minder voorspelbaar dan bij Claude of Copilot",
+      "Previewvolwassenheid blijft een risico voor deadlines",
+      "Bewezen onvoldoende als vaste primaire editor in deze stack",
     ],
   },
   {
     toolKey: "gitlabDuo",
     status: "warn",
-    statusLabel: "Context-afhankelijk",
+    statusLabel: "Nog in evaluatie",
     verdict:
-      "Alleen logisch in een GitLab-first organisatie; als losse developertool is het prijs- en platformmodel te zwaar.",
+      "Organisatorisch logisch om mee te nemen, maar nu nog geen overtuigende vervanger van Copilot in de dagelijkse IDE-flow.",
     judgmentDetail:
-      "GitLab Duo kan interessant zijn wanneer governance, self-managed hosting en platformcontext belangrijker zijn dan pure modelkeuze. Voor een losse VS Code-autocomplete-oplossing blijft het minder aantrekkelijk, omdat prijsstructuur, toegangslagen en fallback minder direct te begrijpen zijn dan bij seat-tools.",
+      "De instapdrempel is laag omdat GitLab Premium SaaS al in huis is en Duo Core daardoor beschikbaar is. Tegelijk voelt de autocomplete voor jou nog te zwak, vermoedelijk door de huidige modelkeuze onder water, en mist GitLab het praktische voordeel dat Copilot wel heeft: zelf modellen kiezen voor verschillende taken. Daarbovenop brand je door de inbegrepen $12 GitLab Credits per gebruiker per maand voor Agent Platform-features vrij snel heen, waardoor het als enige AI-tool te dun wordt voor een volledige developerflow.",
     recommendation:
-      "Overweeg alleen als GitLab al het centrum van je deliveryproces is; anders liever een eenvoudigere seat-tool met duidelijkere limieten.",
+      "Houd in evaluatie voor GitLab-first workflows en platformcontext, maar standaardiseer voorlopig niet als primaire IDE-tool zolang autocomplete, modelkeuze en post-credit gedrag onvoldoende overtuigen.",
     whatFor:
-      "Voor evaluaties in teams die broncode, reviews, policies en governance al in GitLab centraliseren en IDE-suggesties zo dicht mogelijk op die platformcontext willen houden.",
+      "Voor evaluaties in teams die broncode, merge requests, policies en governance al in GitLab centraliseren en willen meten hoeveel extra waarde die platformcontext in IDE-suggesties en agentflows echt oplevert.",
     goodAt:
-      "Logische fit voor GitLab-first organisaties. Code Suggestions sluit aan op bestaande GitLab-processen en kan interessanter worden als self-managed hosting, compliance of centrale controle belangrijker is dan pure modelkeuzevrijheid.",
+      "Logische organisatorische fit wanneer Premium toch al loopt: Duo Core zit erbij en GitLab-context kan relevant zijn voor teams die sterk vanuit GitLab werken. Voor governance, centrale instellingen en eventuele self-managed routes blijft het interessanter dan een losse editorplugin.",
     concerns:
-      "De prijsstructuur is minder simpel dan een losse seat-tool en hangt af van Premium of Ultimate plus Duo-toegang of credits. Daarnaast is de modelkeuze abstracter en zijn de completion- en generatielimieten functioneler, maar minder ruim dan sommige andere tools in deze vergelijking.",
+      "Autocomplete overtuigt nog niet genoeg voor dagelijkse flow. De packaging is ook minder helder dan bij seat-tools: Duo Core en Agent Platform lopen door elkaar, terwijl de $12 maandelijkse credits voor zwaardere agent- en chatflows snel opraken. Als die credits op zijn, is er geen simpele gratis model-fallback voor de credit-based laag; als enige tool voelt dat te fragiel.",
     pros: [
-      "Sterke governance-fit voor GitLab-gecentreerde teams",
-      "Kan goed aansluiten op self-managed en compliance-eisen",
-      "Platformcontext kan waardevol zijn binnen een bestaande GitLab-stack",
+      "Lage extra adoptiedrempel als GitLab Premium al aanwezig is",
+      "Sterke fit voor GitLab-first governance en platformcontext",
+      "Duo Core Code Suggestions zijn organisatorisch logisch om mee te evalueren",
     ],
     cons: [
-      "Minder aantrekkelijk als standalone VS Code-autocomplete",
-      "Prijs- en gebruiksmodel is complexer dan vaste seat-tools",
-      "Modelrouting en fallback zijn minder direct inzichtelijk voor developers",
+      "Autocomplete voelt momenteel te zwak als dagelijkse basis",
+      "Zelf modellen kiezen is minder direct dan bij Copilot",
+      "$12 maandelijkse credits zijn snel op bij intensiever agentgebruik",
+      "Geen duidelijke gratis fallback voor de credit-based Agent Platform-laag",
     ],
   },
 ];
@@ -174,19 +179,42 @@ const STATUS_COLORS = {
   danger: "var(--danger)",
 };
 
+const DISPLAY_FINDINGS = [...FINDINGS].sort((a, b) => {
+  if (a.toolKey === "cursor") return -1;
+  if (b.toolKey === "cursor") return 1;
+  return 0;
+});
+
 export default function KeyFindings() {
+  const [openFindings, setOpenFindings] = useState(() => new Set(["cursor"]));
+
   return (
     <section>
       <div className="findings-list">
-        {FINDINGS.map((group) => {
+        {DISPLAY_FINDINGS.map((group) => {
           const color = STATUS_COLORS[group.status];
           const warnColor =
             STATUS_COLORS[group.status === "accent" ? "warn" : group.status];
           const tool = TOOL_BY_KEY[group.toolKey];
+          const isOpen = openFindings.has(group.toolKey);
           return (
             <details
               key={group.toolKey}
               className="finding-card"
+              open={isOpen}
+              onToggle={(event) => {
+                setOpenFindings((current) => {
+                  const next = new Set(current);
+
+                  if (event.currentTarget.open) {
+                    next.add(group.toolKey);
+                  } else {
+                    next.delete(group.toolKey);
+                  }
+
+                  return next;
+                });
+              }}
               style={{
                 "--finding-color": color,
                 "--finding-warn-color": warnColor,
@@ -208,7 +236,7 @@ export default function KeyFindings() {
                   <p className="finding-summary-copy">{group.verdict}</p>
                   <p className="finding-summary-recommendation">
                     <span className="finding-summary-recommendation-label">
-                      Advies
+                      Oordeel
                     </span>
                     {group.recommendation}
                   </p>
@@ -225,41 +253,20 @@ export default function KeyFindings() {
               </summary>
 
               <div className="finding-body">
-                <div className="finding-decision-grid">
-                  <NarrativeBlock
-                    label="Waarom dit oordeel"
-                    labelColor="var(--finding-color)"
-                    border
-                  >
+                <div className="finding-decision-section">
+                  <NarrativeBlock label="Waarom dit oordeel" border>
                     {group.judgmentDetail}
-                  </NarrativeBlock>
-                  <NarrativeBlock
-                    label="Aanbeveling"
-                    labelColor="var(--accent)"
-                  >
-                    {group.recommendation}
                   </NarrativeBlock>
                 </div>
 
                 <div className="finding-narrative-grid">
-                  <NarrativeBlock
-                    label="Waar ik het voor gebruikte"
-                    labelColor="var(--accent)"
-                    border
-                  >
+                  <NarrativeBlock label="Waar ik het voor gebruikte" border>
                     {group.whatFor}
                   </NarrativeBlock>
-                  <NarrativeBlock
-                    label="Waar het goed in is"
-                    labelColor="var(--accent)"
-                    border
-                  >
+                  <NarrativeBlock label="Waar het goed in is" border>
                     {group.goodAt}
                   </NarrativeBlock>
-                  <NarrativeBlock
-                    label="Zorgen die ik heb"
-                    labelColor="var(--finding-warn-color)"
-                  >
+                  <NarrativeBlock label="Zorgen die ik heb">
                     {group.concerns}
                   </NarrativeBlock>
                 </div>
@@ -299,16 +306,14 @@ export default function KeyFindings() {
   );
 }
 
-function NarrativeBlock({ label, labelColor, border = false, children }) {
+function NarrativeBlock({ label, border = false, children }) {
+  const className = ["finding-block", border ? "finding-block-border" : ""]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <div
-      className={
-        border ? "finding-block finding-block-border" : "finding-block"
-      }
-    >
-      <div className="finding-block-label" style={{ color: labelColor }}>
-        {label}
-      </div>
+    <div className={className}>
+      <div className="finding-block-label">{label}</div>
       <p className="finding-block-copy">{children}</p>
     </div>
   );

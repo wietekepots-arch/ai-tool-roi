@@ -32,6 +32,20 @@ export default function CostTable({ tiers }) {
 
   return (
     <section>
+      <aside
+        className="note warn-note"
+        style={{ marginTop: 0, marginBottom: 18 }}
+      >
+        <strong style={{ color: "var(--text)" }}>Interne positionering:</strong>{" "}
+        De observatie is niet alleen dat developers productiever worden, maar
+        dat die extra productiviteit commercieel nog niet expliciet wordt
+        gestuurd. Als we met dezelfde bezetting sneller leveren, meer iteraties
+        doen en meer output geven zonder aangepaste scope of pricing, geven we
+        een deel van die waarde gratis weg. Business moet dus bewust kiezen of
+        die winst landt in marge, extra capaciteit, snellere levering of
+        betaalde extra scope.
+      </aside>
+
       <h2>Volledige kostenscenario's</h2>
       <p style={{ color: "var(--muted)", fontSize: 12, marginBottom: 16 }}>
         Maandelijkse kosten, break-even per tool en risicoclassificatie per
