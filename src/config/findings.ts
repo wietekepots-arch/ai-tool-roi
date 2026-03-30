@@ -18,7 +18,7 @@ export const FINDINGS: Finding[] = [
   {
     toolKey: "codex",
     status: "accent",
-    statusLabel: "Positief herbeoordeld",
+    statusLabel: "Huidige dagelijkse basis",
     verdict:
       "Sterker dan verwacht: GPT 5.4 met high reasoning pakt grote contexten goed aan, de tone of voice zit goed en het voelt prettig in dagelijks deliverywerk. Het 5-uursvenster per week is een betere match dan maandcaps — wie tegen de limiet aanloopt zit maximaal 5 uur zonder, niet de rest van de maand.",
     judgmentDetail:
