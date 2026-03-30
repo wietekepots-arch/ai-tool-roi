@@ -48,6 +48,10 @@ export default function App() {
               <li>
                 Hogere doorontwikkeling zonder lagere code review-standaarden.
               </li>
+              <li>
+                Snellere onboarding doordat AI bestaande codebases kan
+                uitleggen, documenteren en doorzoekbaar maakt.
+              </li>
             </ul>
           </article>
 
