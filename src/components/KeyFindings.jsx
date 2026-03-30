@@ -43,9 +43,6 @@ export default function KeyFindings() {
                       <span className="finding-title">
                         {tool?.label ?? group.toolKey}
                       </span>
-                      {tool?.sub && (
-                        <span className="finding-subtitle">{tool.sub}</span>
-                      )}
                     </div>
                     <span className="finding-badge">{group.statusLabel}</span>
                   </div>
@@ -76,7 +73,10 @@ export default function KeyFindings() {
                 </div>
 
                 <div className="finding-narrative-grid">
-                  <NarrativeBlock label="Hoe deze tool ingezet kan worden" border>
+                  <NarrativeBlock
+                    label="Hoe deze tool ingezet kan worden"
+                    border
+                  >
                     {group.whatFor}
                   </NarrativeBlock>
                   <NarrativeBlock label="Waar het goed in is" border>
