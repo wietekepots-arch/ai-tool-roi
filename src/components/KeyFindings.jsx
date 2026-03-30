@@ -6,7 +6,11 @@ const FINDINGS = [
     status: "warn",
     statusLabel: "Wordt onderzocht",
     verdict:
-      "Veelbelovende dagelijkse tool, maar houd hem in maandelijkse review tot quota en prijsbeleid stabieler zijn.",
+      "Behouden voor afgebakend async werk; niet positioneren als primaire redeneerlaag.",
+    judgmentDetail:
+      "Codex is vooral waardevol voor achtergrond- en wachtrijtaken: repo-breed zoeken, repetitieve refactors en edits terwijl implementatie doorloopt. Voor zwaar redeneerwerk haalt het niet het niveau van Opus, maar voor Sonnet-niveau taken werkt het betrouwbaar. De huidige ruime preview-capaciteit voelt nog als bonus; gebruik die dus niet als vaste baseline voor planning.",
+    recommendation:
+      "Houd in de stack voor async agentwerk en queue-based taken, maar review maandelijks of quota en prijsbeleid stabiel blijven.",
     whatFor:
       "Async agents voor repo-breed zoeken, bestaande code refactoren, ondersteuning bij code review en repetitieve edits terwijl ik gefocust blijf op implementatie. Ik gebruik het voor afgebakende taken met een duidelijke scope, review elke wijziging en merge pas nadat lint, tests en normale code review slagen.",
     goodAt:
@@ -30,7 +34,11 @@ const FINDINGS = [
     status: "danger",
     statusLabel: "Nu gepauzeerd",
     verdict:
-      "Vandaag niet geschikt als standaard teamtool; alleen opnieuw beoordelen als facturatie en quotacontroles per gebruiker voorspelbaar worden.",
+      "Nu niet geschikt als standaard teamtool; de waarde valt te snel weg zodra caps of overages in beeld komen.",
+    judgmentDetail:
+      "Zodra de inbegrepen teamcap op is, zakt Cursor terug naar een veel zwakkere editorervaring: premiummodellen verdwijnen, fallbackkwaliteit zakt en de workflow verliest continuiteit. Grote contexten en agentloops maken dat risico te concreet voor teams die capaciteit vooraf willen plannen.",
+    recommendation:
+      "Alleen opnieuw beoordelen als per-seat facturatie, quota en fallbackgedrag voorspelbaar genoeg worden voor sprintplanning.",
     whatFor:
       "All-in-one editorworkflow met ingebouwde AI-codingfeatures voor snelle interactieve implementatie. Nu gepauzeerd; ik gebruik het alleen nog in gerichte evaluatiesessies, niet voor fulltime deliverywerk.",
     goodAt:
@@ -53,6 +61,10 @@ const FINDINGS = [
     statusLabel: "Huidige dagelijkse basis",
     verdict:
       "Beste huidige standaard voor consistente delivery: voorspelbaar, portable en makkelijk inzetbaar over projecten heen.",
+    judgmentDetail:
+      "De vaste seat-prijs en het verschil tussen Sonnet voor flow en Opus voor diepte maken Claude nog steeds de meest stabiele redeneerlaag in deze stack. De limieten zijn niet oneindig, maar wel duidelijk genoeg om er een dagelijkse werkwijze omheen te bouwen zonder IDE-lock-in.",
+    recommendation:
+      "Gebruik als primaire redeneer- en analyse-laag, met Copilot of Codex als overloop wanneer het 5-uursvenster onder druk staat.",
     whatFor:
       "Dagelijkse implementatie, architectuurwerk en lastige debugging waar beter redeneervermogen telt. Sonnet is de standaard voor snelle flow; Opus reserveer ik voor diepere analyse of moeilijke refactors. Ik houd prompts kort en context strak om het 5-uursvenster niet onnodig op te branden.",
     goodAt:
@@ -75,7 +87,11 @@ const FINDINGS = [
     status: "accent",
     statusLabel: "Huidige dagelijkse basis",
     verdict:
-      "Gebruik als overloop en vangnet voor modelrouting; erg efficient tot premium requests op zijn.",
+      "Sterke dagelijkse IDE-basis en goed vangnet voor modelrouting, zolang premium requests bewaakt worden.",
+    judgmentDetail:
+      "Copilot is efficient zolang je de premiumpool bewust inzet: lichte modellen voor routinewerk, zwaardere modellen alleen voor echte pieken. Dat maakt het een goedkope hedge tegen provider-specifieke limieten, vooral omdat basischat en autocomplete blijven doorlopen wanneer de premiumpool opraakt.",
+    recommendation:
+      "Gebruik als primaire IDE-laag en combineer met Claude voor dieper redeneerwerk in plaats van alles uit dezelfde premium pool te trekken.",
     whatFor:
       "Fallback en burst-capaciteit wanneer Claude- of Codex-vensters onder druk staan. Ik begin standaard met modellen met laag verbruik en schakel alleen naar duurdere modellen als de complexiteit van de taak dat rechtvaardigt.",
     goodAt:
@@ -97,7 +113,11 @@ const FINDINGS = [
     status: "warn",
     statusLabel: "Nog in evaluatie",
     verdict:
-      "Interessante kandidaat voor VS Code-autocomplete en terminalhulp, maar eerst toetsen op limiettransparantie en kwaliteit in echte repo's.",
+      "Interessante VS Code-kandidaat, maar nog onvoldoende transparant om nu als vaste standaard te kiezen.",
+    judgmentDetail:
+      "De combinatie van autocomplete, chat en terminalhulp in een Google-stack is aantrekkelijk, vooral voor teams met veel Google Cloud-context. Zolang harde quota, fallback en praktische throughput minder zichtbaar zijn dan bij Copilot of Claude, blijft het lastig om de werkelijke dagelijkse capaciteit betrouwbaar te modelleren.",
+    recommendation:
+      "Alleen verder testen in echte repo's; pas opnemen als limieten, fallback en kwaliteit in dagelijkse flow beter voorspelbaar blijken.",
     whatFor:
       "Voor gerichte evaluaties van editor-native autocomplete, comment-gedreven codegeneratie en terminalassistentie via Gemini CLI. Vooral relevant als snelle inline hulp en brede Google-integratie belangrijker zijn dan zware multi-agent orchestration.",
     goodAt:
@@ -120,7 +140,11 @@ const FINDINGS = [
     status: "warn",
     statusLabel: "Context-afhankelijk",
     verdict:
-      "Zinvol als je workflow al zwaar op GitLab leunt, maar minder aantrekkelijk als losse VS Code-autocomplete door prijs- en platformcomplexiteit.",
+      "Alleen logisch in een GitLab-first organisatie; als losse developertool is het prijs- en platformmodel te zwaar.",
+    judgmentDetail:
+      "GitLab Duo kan interessant zijn wanneer governance, self-managed hosting en platformcontext belangrijker zijn dan pure modelkeuze. Voor een losse VS Code-autocomplete-oplossing blijft het minder aantrekkelijk, omdat prijsstructuur, toegangslagen en fallback minder direct te begrijpen zijn dan bij seat-tools.",
+    recommendation:
+      "Overweeg alleen als GitLab al het centrum van je deliveryproces is; anders liever een eenvoudigere seat-tool met duidelijkere limieten.",
     whatFor:
       "Voor evaluaties in teams die broncode, reviews, policies en governance al in GitLab centraliseren en IDE-suggesties zo dicht mogelijk op die platformcontext willen houden.",
     goodAt:
@@ -171,12 +195,23 @@ export default function KeyFindings() {
               <summary className="finding-summary">
                 <div className="finding-summary-main">
                   <div className="finding-summary-row">
-                    <span className="finding-title">
-                      {tool?.label ?? group.toolKey}
-                    </span>
+                    <div className="finding-heading">
+                      <span className="finding-title">
+                        {tool?.label ?? group.toolKey}
+                      </span>
+                      {tool?.sub && (
+                        <span className="finding-subtitle">{tool.sub}</span>
+                      )}
+                    </div>
                     <span className="finding-badge">{group.statusLabel}</span>
                   </div>
                   <p className="finding-summary-copy">{group.verdict}</p>
+                  <p className="finding-summary-recommendation">
+                    <span className="finding-summary-recommendation-label">
+                      Advies
+                    </span>
+                    {group.recommendation}
+                  </p>
                 </div>
                 <span className="finding-toggle" aria-hidden="true">
                   <span className="finding-toggle-label finding-toggle-expand">
@@ -190,6 +225,22 @@ export default function KeyFindings() {
               </summary>
 
               <div className="finding-body">
+                <div className="finding-decision-grid">
+                  <NarrativeBlock
+                    label="Waarom dit oordeel"
+                    labelColor="var(--finding-color)"
+                    border
+                  >
+                    {group.judgmentDetail}
+                  </NarrativeBlock>
+                  <NarrativeBlock
+                    label="Aanbeveling"
+                    labelColor="var(--accent)"
+                  >
+                    {group.recommendation}
+                  </NarrativeBlock>
+                </div>
+
                 <div className="finding-narrative-grid">
                   <NarrativeBlock
                     label="Waar ik het voor gebruikte"

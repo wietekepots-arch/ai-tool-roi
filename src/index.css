@@ -557,9 +557,42 @@ td.muted {
 }
 
 .comparison-table {
-  min-width: 1300px;
+  min-width: 1040px;
   border-collapse: separate;
   border-spacing: 0;
+}
+
+.comparison-cell-stack {
+  display: grid;
+  gap: 10px;
+}
+
+.comparison-cell-detail {
+  display: grid;
+  gap: 4px;
+}
+
+.comparison-cell-label {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.comparison-cell-value {
+  color: var(--text);
+}
+
+.comparison-cell-detail.accent .comparison-cell-value {
+  color: var(--accent);
+}
+
+.comparison-cell-detail.warn .comparison-cell-value {
+  color: var(--warn);
+}
+
+.comparison-cell-detail.danger .comparison-cell-value {
+  color: var(--danger);
 }
 
 .cost-modal {
@@ -751,10 +784,16 @@ td.muted {
 
 .finding-summary-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
   margin-bottom: 10px;
+}
+
+.finding-heading {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
 }
 
 .finding-title {
@@ -762,6 +801,11 @@ td.muted {
   font-size: 15px;
   font-weight: 600;
   color: var(--text);
+}
+
+.finding-subtitle {
+  font-size: 11px;
+  color: var(--muted);
 }
 
 .finding-badge {
@@ -786,6 +830,25 @@ td.muted {
   line-height: 1.7;
   color: var(--muted);
   font-style: italic;
+}
+
+.finding-summary-recommendation {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid
+    color-mix(in srgb, var(--finding-color, var(--accent)) 14%, var(--border));
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.finding-summary-recommendation-label {
+  margin-right: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--finding-color, var(--accent));
 }
 
 .finding-toggle {
@@ -826,6 +889,12 @@ td.muted {
 
 .finding-body {
   border-top: 1px solid var(--border);
+}
+
+.finding-decision-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  border-bottom: 1px solid var(--border);
 }
 
 .finding-narrative-grid {
@@ -965,6 +1034,7 @@ footer {
   .finding-toggle {
     justify-content: space-between;
   }
+  .finding-decision-grid,
   .finding-narrative-grid,
   .finding-points-grid {
     grid-template-columns: 1fr;
@@ -975,7 +1045,7 @@ footer {
     border-bottom: 1px solid var(--border);
   }
   .comparison-table {
-    min-width: 1100px;
+    min-width: 940px;
   }
 }
 

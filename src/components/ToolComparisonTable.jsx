@@ -1,4 +1,5 @@
 import { useEffect, useId, useRef, useState } from "react";
+import ComparisonDetailCell from "./ComparisonDetailCell";
 import { TOOL_CONFIG } from "../config/tools";
 
 export default function ToolComparisonTable() {
@@ -32,18 +33,13 @@ export default function ToolComparisonTable() {
 
   return (
     <section>
-      <h2>Vergelijking van toollimieten en modellen</h2>
-      <p style={{ color: "var(--muted)", fontSize: 12, marginBottom: 16 }}>
-        Overzicht naast elkaar van modelklasse, snelheid versus redeneervermogen
-        en hoe snel elke setup zijn limieten verbruikt.
-      </p>
-
       <div className="comparison-callout">
         <div>
-          <p className="comparison-callout-label">Interactieve weergave</p>
+          <p className="comparison-callout-label">Reality check op limieten</p>
           <p className="comparison-callout-copy">
-            Open de volledige vergelijking in een modal zodat de tabel breed kan
-            blijven zonder de hoofdflow van de pagina te breken.
+            Gebruik deze vergelijking om te zien welke tools ook na intensief
+            dagelijks gebruik bruikbaar blijven. Dat verschil bepaalt of je op
+            een tool kunt plannen of alleen op een demo kunt vertrouwen.
           </p>
         </div>
 
@@ -56,17 +52,15 @@ export default function ToolComparisonTable() {
           aria-controls="tool-comparison-modal"
           onClick={() => setIsOpen(true)}
         >
-          Open vergelijking
+          Open toolvergelijking
         </button>
       </div>
 
-      <p style={{ color: "var(--muted)", fontSize: 11, marginTop: 10 }}>
-        <strong>Legenda:</strong> <strong>Ja</strong> = blijft beschikbaar
-        binnen het betaalde plan. <strong>Voorwaardelijk</strong> = alleen
-        beschikbaar tot de bestedingslimiet of gebruiksfacturatie is bereikt.{" "}
-        <strong>Nee</strong> = geblokkeerd tot reset, upgrade of betaalde
-        credits.
-      </p>
+      <div className="note">
+        <strong>Waar je op wilt sturen:</strong> niet welk plan de meeste
+        modelnamen noemt, maar welke workflow overeind blijft zodra premium
+        gebruik opraakt.
+      </div>
 
       {isOpen && (
         <div
@@ -92,8 +86,9 @@ export default function ToolComparisonTable() {
                   Vergelijking van toollimieten en modellen
                 </h3>
                 <p id={descriptionId} className="comparison-modal-copy">
-                  Brede tabel met modelkeuze, quota-gedrag en fallback na het
-                  raken van limieten.
+                  Per tool: welke modellen je krijgt, hoe het verbruik zich in
+                  de praktijk gedraagt en wat er overblijft zodra je de cap
+                  raakt.
                 </p>
               </div>
 
@@ -112,15 +107,11 @@ export default function ToolComparisonTable() {
               <table className="comparison-table">
                 <thead>
                   <tr>
-                    <th>Tool (prijstier)</th>
-                    <th>Gebruikt model</th>
-                    <th>Dichtstbijzijnde equivalent</th>
-                    <th>Snel versus zwaar redeneren</th>
-                    <th>Gebruikslimieten</th>
-                    <th>Verbruik van limieten</th>
-                    <th>Wat gebeurt er op de limiet</th>
-                    <th>IDE-autocomplete na de limiet</th>
-                    <th>Beschikbare modellen na de limiet</th>
+                    <th>Tool</th>
+                    <th>Modellen</th>
+                    <th>Beste inzet</th>
+                    <th>Quota en verbruik</th>
+                    <th>Na de limiet</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -135,18 +126,56 @@ export default function ToolComparisonTable() {
                           </>
                         )}
                       </td>
-                      <td>{tool.modelUsed}</td>
-                      <td>{tool.modelEquivalent}</td>
+                      <td>
+                        <ComparisonDetailCell
+                          items={[
+                            { label: "Modellen", value: tool.modelUsed },
+                            {
+                              label: "Praktische positie",
+                              value: tool.modelEquivalent,
+                            },
+                          ]}
+                        />
+                      </td>
                       <td>{tool.workloadProfile}</td>
-                      <td>{tool.limits}</td>
-                      <td className={tool.riskLevel}>{tool.burnRate}</td>
-                      <td>{tool.limitHit}</td>
-                      <td>{tool.ideCompletionsAtLimit}</td>
-                      <td>{tool.modelsAfterLimit}</td>
+                      <td>
+                        <ComparisonDetailCell
+                          items={[
+                            { label: "Cap", value: tool.limits },
+                            {
+                              label: "In praktijk",
+                              value: tool.burnRate,
+                              tone: tool.riskLevel,
+                            },
+                          ]}
+                        />
+                      </td>
+                      <td>
+                        <ComparisonDetailCell
+                          items={[
+                            { label: "Direct effect", value: tool.limitHit },
+                            {
+                              label: "Autocomplete",
+                              value: tool.ideCompletionsAtLimit,
+                            },
+                            {
+                              label: "Wat overblijft",
+                              value: tool.modelsAfterLimit,
+                            },
+                          ]}
+                        />
+                      </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
+            </div>
+
+            <div className="note" style={{ margin: "0 22px 22px" }}>
+              <strong>Belangrijkste leeshulp:</strong> kijk eerst naar de
+              laatste kolom. Daar zie je of een tool na intensief gebruik nog
+              bruikbaar blijft, of dat je workflow stilvalt tot reset, overages
+              of downgrade.
             </div>
           </div>
         </div>

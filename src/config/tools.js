@@ -3,7 +3,7 @@ export const TOOL_CONFIG = [
   {
     key: "claudePro",
     label: "Claude Team {$30/user/mo}",
-    sub: "Zakelijk teamplan",
+
     usd: "$30",
     eur: 28,
     modelUsed: "Claude Sonnet 4.6, Claude Opus 4.6",
@@ -24,7 +24,6 @@ export const TOOL_CONFIG = [
   {
     key: "claudeTeamPremium",
     label: "Claude Team — Premium Seat {$100/user/mo}",
-    sub: "Max 5x-capaciteit binnen een Team-plan",
     usd: "$100",
     eur: 95,
     modelUsed: "Claude Sonnet 4.6, Claude Opus 4.6",
@@ -37,6 +36,7 @@ export const TOOL_CONFIG = [
       "Gemiddeld: veel meer ruimte dan de basis Team-seat, maar zware Opus-sessies en lange contexten lopen nog steeds sneller leeg",
     limitHit:
       "Je raakt de sessiecap en wacht op reset na 5u; geen overage, je blijft binnen de seat-tier",
+    ideCompletionsAtLimit: "Nee - geen native IDE-autocomplete in dit plan",
     modelsAfterLimit: "Geen tot het venster van 5 uur reset",
     risk: "Laag - vaste prijs per seat",
     riskLevel: "accent",
@@ -45,7 +45,6 @@ export const TOOL_CONFIG = [
   {
     key: "codex",
     label: "ChatGPT Team {$30/user/mo}",
-    sub: "Zakelijk teamplan - inclusief Codex",
     usd: "$30",
     eur: 28,
     modelUsed:
@@ -58,6 +57,8 @@ export const TOOL_CONFIG = [
       "Team Codex: ~90-450 lokale berichten/5u of ~20-120 cloudtaken/5u (2x Plus-quota), wekelijkse cap van toepassing; 5.1-Codex-Mini geeft ~4x lokale capaciteit",
     burnRate:
       "Gemiddeld-hoog: high mode en lange agenttaken verbruiken quota veel sneller dan mini",
+    limitHit:
+      "Binnen het inbegrepen Team-quota stopt Codex tot de reset van het 5-uurs- of weekvenster, tenzij je betaalde credits activeert.",
     ideCompletionsAtLimit:
       "Nee - Codex stopt bij de inbegrepen cap (gaat weer verder na reset of betaalde credits)",
     modelsAfterLimit:
@@ -68,7 +69,6 @@ export const TOOL_CONFIG = [
   {
     key: "chatgptPro",
     label: "ChatGPT Enterprise {~$60/user/mo}",
-    sub: "Prijs via maatwerkcontract - indicatief",
     usd: "~$60",
     eur: 57,
     modelUsed:
@@ -92,7 +92,6 @@ export const TOOL_CONFIG = [
   {
     key: "copilot",
     label: "GitHub Copilot Business {$19/user/mo}",
-    sub: "300 premium requests + enterprise-controls",
     usd: "$19",
     eur: 18,
     modelUsed:
@@ -115,7 +114,6 @@ export const TOOL_CONFIG = [
   {
     key: "copilotEnterprise",
     label: "GitHub Copilot Enterprise {$39/user/mo}",
-    sub: "Alle Business-features + custom modellen",
     usd: "$39",
     eur: 37,
     modelUsed:
@@ -139,7 +137,6 @@ export const TOOL_CONFIG = [
   {
     key: "googleAntigravity",
     label: "Google Antigravity / Gemini Code Assist Standard {$22.80/user/mo}",
-    sub: "VS Code autocomplete, chat en Gemini CLI-licentie",
     usd: "$22.80",
     eur: 22,
     modelUsed:
@@ -165,7 +162,6 @@ export const TOOL_CONFIG = [
   {
     key: "gitlabDuo",
     label: "GitLab Duo voor VS Code {Premium/Ultimate + add-on/credits}",
-    sub: "Code Suggestions in VS Code via GitLab AI Gateway",
     usd: "$29+ /user/mo + add-on/credits",
     eur: null,
     eurLabel: "Maatwerk / usage-based",
@@ -192,13 +188,14 @@ export const TOOL_CONFIG = [
   {
     key: "cursor",
     label: "Cursor Teams (base only) {$40/mo}",
-    sub: "$40/mnd, geen overages",
     usd: "$40",
     eur: 38,
     modelUsed: "Sonnet, Opus, Codex, Codex Mini, Composer 1, Auto",
     modelEquivalent: "Gemengde premium-pool + Cursor-orkestratie",
     workloadProfile:
       "Sterke interactieve snelheid; redeneervermogen hangt af van het gekozen model",
+    limits:
+      "Teams-seat met inbegrepen basisgebruik; zodra dat op is, ga je verder op Auto of op usage-based premium requests voor gekozen modellen.",
     burnRate:
       "Hoog: Opus, lange contexten, Composer-loops en handmatig gebruik van niet-Auto-modellen verbruiken het snelst",
     limitHit:
@@ -213,12 +210,13 @@ export const TOOL_CONFIG = [
   {
     key: "cursorMax",
     label: "Cursor Teams + full overages {$160/mo max}",
-    sub: "$40 basis + $120 cap",
     usd: "$160 max",
     eur: 152,
     modelUsed: "Sonnet, Opus, Codex, Codex Mini, Composer 1, Auto",
     modelEquivalent: "Hoogste beschikbare Cursor-modelset",
     workloadProfile: "Snel en flexibel, gericht op langdurig zwaar gebruik",
+    limits:
+      "Teams-seat met $40 basis plus usage tot de ingestelde teamcap; bedoeld voor zwaar gebruik, maar kosten lopen door tot die cap is bereikt.",
     burnRate:
       "Zeer hoog: zware agentworkflows verbruiken het usage-budget snel zodra je boven het inbegrepen gebruik uitkomt",
     limitHit:
