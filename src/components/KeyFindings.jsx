@@ -76,7 +76,7 @@ export default function KeyFindings() {
                 </div>
 
                 <div className="finding-narrative-grid">
-                  <NarrativeBlock label="Waar ik het voor gebruikte" border>
+                  <NarrativeBlock label="Hoe deze tool ingezet kan worden" border>
                     {group.whatFor}
                   </NarrativeBlock>
                   <NarrativeBlock label="Waar het goed in is" border>

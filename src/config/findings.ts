@@ -26,7 +26,7 @@ export const FINDINGS: Finding[] = [
     recommendation:
       "Doorzetten als dagelijkse tool en vergelijken met Claude Code en eventueel een hogere Copilot-tier op hoe natuurlijk de integratie aansluit — met name op autonome werkzaamheden.",
     whatFor:
-      "Fulltime deliverywerk en vergelijkend onderzoek naar autonome workflows. GPT 5.4 pakt grote contexten goed aan en de tone of voice zit goed. Ik vergelijk actief met Claude Code en eventueel een hogere Copilot-tier om te meten welke integratie het prettigst aansluit op de werkwijze.",
+      "Fulltime deliverywerk via agents en cloud agents — geen autocomplete of tab completions, maar autonome taken die op de achtergrond draaien. Toegang tot alle OpenAI-modellen, van snel en goedkoop tot high reasoning. Daarnaast koppelbaar met apps als Notion en Slack voor de meer soft skill taken van een developer: standups voorbereiden, tickets samenvatten, documentatie bijwerken.",
     goodAt:
       "Sterk in taken met hoog volume die anders de hoofdflow van development zouden onderbreken. Betrouwbaar als achtergrondwerker terwijl implementatie parallel doorgaat; tot nu toe geen onderbrekingen door rate limits gezien, ook niet bij intensief dagelijks gebruik. Werkt over IDE-omgevingen heen, waardoor de workflow portable blijft.",
     concerns:
@@ -54,7 +54,7 @@ export const FINDINGS: Finding[] = [
     recommendation:
       "Alleen opnieuw beoordelen als per-seat facturatie, quota en fallbackgedrag voorspelbaar genoeg worden voor sprintplanning.",
     whatFor:
-      "All-in-one editorworkflow met ingebouwde AI-codingfeatures voor snelle interactieve implementatie. Nu gepauzeerd; ik gebruik het alleen nog in gerichte evaluatiesessies, niet voor fulltime deliverywerk.",
+      "All-in-one editor met ingebouwde autocomplete en tab completions, beschikking over (premium) modellen en een native workflow die daardoor erg vloeiend aanvoelt. Chat, agents en codeassistentie zitten in één omgeving zonder contextwissels.",
     goodAt:
       "Productieve editor-native workflows zolang gebruik binnen voorspelbare limieten blijft. Kan iteraties versnellen bij korte, gefocuste codingtaken waar IDE-integratie contextwissels vermindert.",
     concerns:
@@ -74,17 +74,17 @@ export const FINDINGS: Finding[] = [
     status: "accent",
     statusLabel: "Huidige dagelijkse basis",
     verdict:
-      "Beste huidige standaard voor consistente delivery: voorspelbaar, portable en makkelijk inzetbaar over projecten heen.",
+      "Samen met Codex de beste huidige standaard voor consistente delivery: voorspelbaar, portable en makkelijk inzetbaar over projecten heen.",
     judgmentDetail:
       "De vaste seat-prijs en het verschil tussen Sonnet voor flow en Opus voor diepte maken Claude nog steeds de meest stabiele redeneerlaag in deze stack. De limieten zijn niet oneindig, maar wel duidelijk genoeg om er een dagelijkse werkwijze omheen te bouwen zonder IDE-lock-in.",
     recommendation:
       "Gebruik als primaire redeneer- en analyse-laag, met Copilot of Codex als overloop wanneer het 5-uursvenster onder druk staat.",
     whatFor:
-      "Dagelijkse implementatie, architectuurwerk en lastige debugging waar beter redeneervermogen telt. Sonnet is de standaard voor snelle flow; Opus reserveer ik voor diepere analyse of moeilijke refactors. Ik houd prompts kort en context strak om het 5-uursvenster niet onnodig op te branden.",
+      "Dagelijkse implementatie, architectuurwerk en lastige debugging via Claude Code (CLI) of de webinterface. Sonnet voor snelle flow, Opus voor diepere analyse of moeilijke refactors. Keuze tussen modellen op basis van taakzwaarte, zonder IDE-lock-in. Integraties met apps als Notion en Slack zijn mogelijk via MCP, maar technisch uitdagender dan kant-en-klare koppelingen. GitLab-integratie is haalbaar via API, maar vergt meer eigen opzet.",
     goodAt:
       "Voorspelbare vaste maandkosten met betrouwbare modelkwaliteit. De duidelijke scheiding tussen Sonnet (snelheid) en Opus (diepte) maakt het makkelijk om modelkeuze op taakzwaarte af te stemmen. Portable over omgevingen heen, zonder IDE-lock-in.",
     concerns:
-      "Capaciteit kan snel verdwijnen op dagen met veel Opus-gebruik. Verbruik loopt hard op bij lange threads. Als ik de 5-uurscap nader, verschuif ik werk naar Copilot of Codex en bewaar ik Claude alleen voor kritieke prompts. Dynamische limietaanpassingen kunnen bruikbare throughput veranderen zonder dat het plan wijzigt.",
+      "De integratie in VS Code voelt onhandig — de ervaring is merkbaar minder vloeiend dan bij editors met native AI-integratie. App-integraties via MCP vragen meer technische kennis dan de plug-and-play koppelingen van concurrenten. Capaciteit kan snel verdwijnen op dagen met veel Opus-gebruik. Verbruik loopt hard op bij lange threads. Als ik de 5-uurscap nader, verschuif ik werk naar Copilot of Codex en bewaar ik Claude alleen voor kritieke prompts. Dynamische limietaanpassingen kunnen de bruikbare capaciteit veranderen zonder dat het plan wijzigt.",
     pros: [
       "Voorspelbare vaste maandkosten",
       "Duidelijke scheiding tussen snel en diep (Sonnet / Opus)",
@@ -92,7 +92,7 @@ export const FINDINGS: Finding[] = [
     ],
     cons: [
       "Capaciteit loopt snel leeg op Opus-zware dagen",
-      "Dynamische limietwijzigingen kunnen throughput onverwacht verlagen",
+      "Dynamische limietwijzigingen kunnen de bruikbare capaciteit onverwacht verlagen",
       "Afhankelijkheid van een enkele provider verhoogt storingsrisico",
     ],
   },
@@ -103,18 +103,18 @@ export const FINDINGS: Finding[] = [
     verdict:
       "Sterke dagelijkse IDE-basis en goed vangnet voor modelrouting, zolang premium requests bewaakt worden.",
     judgmentDetail:
-      "Copilot is efficient zolang je de premiumpool bewust inzet: lichte modellen voor routinewerk, zwaardere modellen alleen voor echte pieken. Dat maakt het een goedkope hedge tegen provider-specifieke limieten, vooral omdat basischat en autocomplete blijven doorlopen wanneer de premiumpool opraakt.",
+      "Copilot is efficient zolang je de premiumpool bewust inzet: lichte modellen voor routinewerk, zwaardere modellen alleen voor echte pieken. Dat maakt het een goedkope vangnet tegen provider-specifieke limieten, vooral omdat basischat en autocomplete blijven doorlopen wanneer de premiumpool opraakt.",
     recommendation:
       "Gebruik als primaire IDE-laag en combineer met Claude voor dieper redeneerwerk in plaats van alles uit dezelfde premium pool te trekken.",
     whatFor:
-      "Fallback en burst-capaciteit wanneer Claude- of Codex-vensters onder druk staan. Ik begin standaard met modellen met laag verbruik en schakel alleen naar duurdere modellen als de complexiteit van de taak dat rechtvaardigt.",
+      "Autocomplete en tab completions in VS Code, met ruime toegang tot premium requests voor zwaardere modellen en unlimited gebruik van kleinere modellen. Brede modelkeuze binnen één IDE-integratie.",
     goodAt:
-      "Uitstekende modelbreedte voor een lage vaste maandprijs: Sonnet, Opus en Codex-varianten op een plek. Codex Mini met 0,33x multiplier geeft veel capaciteit voor routinetaken. Een sterke hedge tegen limietproblemen bij een enkele provider.",
+      "De integratie in VS Code voelt soepel — een grote pre ten opzichte van Claude Code. Uitstekende modelbreedte voor een lage vaste maandprijs: Sonnet, Opus en Codex-varianten op een plek. Codex Mini met 0,33x multiplier geeft veel capaciteit voor routinetaken. Een sterk vangnet tegen limietproblemen bij een enkele provider.",
     concerns:
       "De premium request-pool kan snel verdwijnen als Opus te losjes wordt gebruikt. Verbruik hangt sterk af van het model: Opus kost 3x terwijl Codex Mini 0,33x kost. Ongemonitord gebruik van multipliers kan ongemerkt het grootste deel van het maandbudget opsouperen. Wijzigingen in modelmultipliers kunnen de effectieve capaciteit veranderen terwijl de prijs van het plan gelijk blijft.",
     pros: [
       "Brede modeltoegang voor een lage vaste prijs",
-      "Sterke hedge tegen uitval van een enkele provider",
+      "Sterke vangnet tegen uitval van een enkele provider",
       "Codex Mini verlengt capaciteit tegen 0,33x kosten",
     ],
     cons: [
@@ -147,7 +147,7 @@ export const FINDINGS: Finding[] = [
     cons: [
       "Autocomplete voelt zwakker dan in de dagelijkse VS Code-flow",
       "Agents reageren trager dan in VS Code",
-      "Dagelijkse throughput en fallback zijn minder voorspelbaar dan bij Claude of Copilot",
+      "Dagelijkse capaciteit en fallback zijn minder voorspelbaar dan bij Claude of Copilot",
       "Previewvolwassenheid blijft een risico voor deadlines",
       "Bewezen onvoldoende als vaste primaire editor in deze stack",
     ],
