@@ -136,26 +136,27 @@ export const TOOL_CONFIG = [
   // Google
   {
     key: "googleAntigravity",
-    label: "Google Antigravity / Gemini Code Assist Standard {$22.80/user/mo}",
-    usd: "$22.80",
-    eur: 22,
+    label: "Google Antigravity {$0/user/mo tijdens evaluatie}",
+    sub: "Laagdrempelig mee te nemen naast onze bestaande Google Workspace-stack",
+    usd: "$0",
+    eur: 0,
     modelUsed:
-      "Google Gemini Code Assist-modellen; Gemini 3 genoemd voor previewkanalen",
+      "Gemini 3 en Gemini 2.5 in previewkanalen, plus browser-agent voor lokale tests",
     modelEquivalent:
-      "Gemini-stack gericht op IDE-autocomplete, codegeneratie en terminalworkflows",
+      "Gemini-stack gericht op autocomplete, terminalwerk en browsergestuurde debugging",
     workloadProfile:
-      "Sterk voor snelle inline completions, comment-gedreven codegeneratie, IDE-chat en terminaltaken via Gemini CLI",
+      "Sterk voor browser debugging op localhost, snelle inline completions en editor/terminalflows binnen een Google-native setup",
     limits:
-      "Standard-seat met 1M-token contextvenster; autocomplete, chat en CLI inbegrepen. Google publiceert op de businesspagina geen simpele maandelijkse requestcap zoals Copilot of Claude.",
+      "Individual-plan: $0/maand met onbeperkte Tab completions en Command requests plus genereuze wekelijkse limieten. Voor teamuitrol bestaat een pad via Google Workspace, maar hogere businesscaps hangen van licentie en rollout af.",
     burnRate:
-      "Moeilijker te voorspellen: context is ruim, maar publieksinfo over harde IDE-quotacaps is beperkter dan bij de meeste concurrenten",
+      "Voor evaluatie gunstig: geen extra seatkosten en genoeg ruimte om echte workflows te testen. De praktische throughput blijft wel minder voorspelbaar dan bij Copilot of Claude zolang Google vooral in wekelijkse limieten en previewcapaciteit communiceert.",
     limitHit:
-      "Verwacht throttling of quotabeleid via licentie/account in plaats van een eenvoudige zichtbare maandcap; exacte resetregels zijn minder transparant",
+      "Bij het gratis plan wacht je op de reset van de weeklimiet of stap je over naar een betaald plan; er is geen eenvoudige publieke premium-pool zoals bij Copilot.",
     ideCompletionsAtLimit:
-      "Voorwaardelijk - hangt af van Google-quota en accountbeleid, niet van een publiek vaste premium-requestpool",
+      "Nee - gratis editorfuncties pauzeren zodra de weeklimiet op is en hervatten na reset of upgrade",
     modelsAfterLimit:
-      "Niet duidelijk als vaste fallbackmatrix gepubliceerd; praktische beschikbaarheid hangt af van plan, releasekanaal en quota",
-    risk: "Gemiddeld - vaste prijs, maar minder transparante gebruikslimieten",
+      "Geen duidelijk gepubliceerde fallbackmatrix; praktische beschikbaarheid hangt af van plan, releasekanaal en quota",
+    risk: "Laag instaprisico, maar limieten en dagelijkse throughput blijven minder transparant",
     riskLevel: "warn",
   },
   // GitLab

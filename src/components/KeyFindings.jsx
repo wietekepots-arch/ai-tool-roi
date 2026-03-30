@@ -26,7 +26,7 @@ const FINDINGS = [
     cons: [
       "Previewquota en beleid kunnen zonder aankondiging veranderen",
       "Minder autonoom wanneer bestandssysteemtoegang beperkt is",
-      "Tijdelijke throughput-boosts kunnen een verkeerd delivery-baseline geven",
+      "De tijdelijke gratis verdubbeling van de rate limit maakt het lastig om goed te beoordelen of de standaardlimiet daadwerkelijk voldoende is.",
     ],
   },
   {

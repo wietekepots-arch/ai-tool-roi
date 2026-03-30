@@ -96,6 +96,7 @@ export default function App() {
 
         <KeyFindings />
         <ToolComparisonTable />
+        <Verdict />
 
         <section id="baseline">
           <h2>Basislijn: waarde en ROI</h2>
@@ -126,8 +127,6 @@ export default function App() {
 
         <CostTable tiers={roi.tiers} />
       </section>
-
-      <Verdict />
 
       <Footer />
     </main>
