@@ -49,7 +49,7 @@ export default function KeyFindings() {
                   <p className="finding-summary-copy">{group.verdict}</p>
                   <p className="finding-summary-recommendation">
                     <span className="finding-summary-recommendation-label">
-                      Oordeel
+                      Advies
                     </span>
                     {group.recommendation}
                   </p>
