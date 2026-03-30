@@ -14,7 +14,8 @@ export const TOOL_CONFIG = [
       "Team: ~225+ berichten/5u voor korte chats (5x Pro-quota); priority access; reset elke 5u; adminconsole, SSO, centrale facturatie",
     burnRate:
       "Gemiddeld: meer ruimte dan Pro; Opus en chats met lange context verbruiken quota nog steeds sneller",
-    limitHit: "Waarschuwing bij lage resterende capaciteit, daarna geblokkeerd tot de reset na 5u",
+    limitHit:
+      "Waarschuwing bij lage resterende capaciteit, daarna geblokkeerd tot de reset na 5u",
     ideCompletionsAtLimit: "Nee - geen native IDE-autocomplete in dit plan",
     modelsAfterLimit: "Geen tot het venster van 5 uur reset",
     risk: "Laag - vaste prijs per seat",
@@ -47,8 +48,10 @@ export const TOOL_CONFIG = [
     sub: "Zakelijk teamplan - inclusief Codex",
     usd: "$30",
     eur: 28,
-    modelUsed: "GPT-5.3-Codex (medium/high), GPT-5.1-Codex-Mini (simpele taken)",
-    modelEquivalent: "Dichtstbijzijnde praktische equivalent: klasse Claude Sonnet 4.6",
+    modelUsed:
+      "GPT-5.3-Codex (medium/high), GPT-5.1-Codex-Mini (simpele taken)",
+    modelEquivalent:
+      "Dichtstbijzijnde praktische equivalent: klasse Claude Sonnet 4.6",
     workloadProfile:
       "Snel genoeg voor iteratie, sterker redeneervermogen in high mode",
     limits:
@@ -94,7 +97,8 @@ export const TOOL_CONFIG = [
     eur: 18,
     modelUsed:
       "Claude Sonnet 4.6, Claude Opus 4.6, GPT-5.3-Codex, GPT-5.1-Codex-Mini",
-    modelEquivalent: "Modelrouter met meerdere providers en zakelijke datacontroles",
+    modelEquivalent:
+      "Modelrouter met meerdere providers en zakelijke datacontroles",
     workloadProfile:
       "Zeer snel voor routinecoding; premiummodellen voor pieken in redeneerwerk",
     limits:
@@ -130,6 +134,59 @@ export const TOOL_CONFIG = [
       "Inbegrepen en org fine-tuned modellen blijven; modellen uit de premium request-pool stoppen",
     risk: "Laag - vaste prijs per seat",
     riskLevel: "accent",
+  },
+  // Google
+  {
+    key: "googleAntigravity",
+    label: "Google Antigravity / Gemini Code Assist Standard {$22.80/user/mo}",
+    sub: "VS Code autocomplete, chat en Gemini CLI-licentie",
+    usd: "$22.80",
+    eur: 22,
+    modelUsed:
+      "Google Gemini Code Assist-modellen; Gemini 3 genoemd voor previewkanalen",
+    modelEquivalent:
+      "Gemini-stack gericht op IDE-autocomplete, codegeneratie en terminalworkflows",
+    workloadProfile:
+      "Sterk voor snelle inline completions, comment-gedreven codegeneratie, IDE-chat en terminaltaken via Gemini CLI",
+    limits:
+      "Standard-seat met 1M-token contextvenster; autocomplete, chat en CLI inbegrepen. Google publiceert op de businesspagina geen simpele maandelijkse requestcap zoals Copilot of Claude.",
+    burnRate:
+      "Moeilijker te voorspellen: context is ruim, maar publieksinfo over harde IDE-quotacaps is beperkter dan bij de meeste concurrenten",
+    limitHit:
+      "Verwacht throttling of quotabeleid via licentie/account in plaats van een eenvoudige zichtbare maandcap; exacte resetregels zijn minder transparant",
+    ideCompletionsAtLimit:
+      "Voorwaardelijk - hangt af van Google-quota en accountbeleid, niet van een publiek vaste premium-requestpool",
+    modelsAfterLimit:
+      "Niet duidelijk als vaste fallbackmatrix gepubliceerd; praktische beschikbaarheid hangt af van plan, releasekanaal en quota",
+    risk: "Gemiddeld - vaste prijs, maar minder transparante gebruikslimieten",
+    riskLevel: "warn",
+  },
+  // GitLab
+  {
+    key: "gitlabDuo",
+    label: "GitLab Duo voor VS Code {Premium/Ultimate + add-on/credits}",
+    sub: "Code Suggestions in VS Code via GitLab AI Gateway",
+    usd: "$29+ /user/mo + add-on/credits",
+    eur: null,
+    eurLabel: "Maatwerk / usage-based",
+    modelUsed:
+      "GitLab-managed of self-hosted modellen via AI Gateway; modelkeuze is abstracter dan bij directe modelrouters",
+    modelEquivalent:
+      "GitLab-native autocomplete en generatie met platformkoppeling in plaats van een expliciete modelcatalogus",
+    workloadProfile:
+      "Geschikt voor VS Code-autocomplete en comment-gedreven generatie, vooral in teams die al zwaar op GitLab leunen",
+    limits:
+      "Beschikbaar op Premium/Ultimate met Duo Core/Pro/Enterprise. Completioncontext tot 32k tokens, generatiecontext tot 80k tokens; outputlimiet 64 tokens voor completion en 2048 tokens voor generatie.",
+    burnRate:
+      "Autocomplete zelf is licht, maar kostenstructuur is minder seat-eenvoudig en hangt af van GitLab-plan, add-ons en in bredere Duo-scenario's credits",
+    limitHit:
+      "Geen eenvoudige publieke resetmatrix voor VS Code-suggesties; gedrag hangt af van Duo-toegang, netwerkroute en organisatiebeleid",
+    ideCompletionsAtLimit:
+      "Voorwaardelijk - afhankelijk van Premium/Ultimate-toegang, Duo-inschakeling en eventuele usage- of beleidsgrenzen",
+    modelsAfterLimit:
+      "Afhankelijk van GitLab-managed of self-hosted setup; geen publiek vaste fallbacktabel zoals bij Copilot of Claude",
+    risk: "Gemiddeld-hoog - prijsmodel minder transparant dan pure seat-tools",
+    riskLevel: "warn",
   },
   // Cursor
   {
@@ -176,8 +233,8 @@ export const TOOL_CONFIG = [
 ];
 
 export const COSTS = Object.fromEntries(
-  TOOL_CONFIG.map(({ key, label, sub, eur, risk, riskLevel }) => [
+  TOOL_CONFIG.map(({ key, label, sub, eur, eurLabel, risk, riskLevel }) => [
     key,
-    { label, sub, eur, risk, riskLevel },
+    { label, sub, eur, eurLabel, risk, riskLevel },
   ])
 );

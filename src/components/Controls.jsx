@@ -2,9 +2,7 @@ import { PRESETS } from '../useROI'
 
 export default function Controls({ rate, setRate, monthlyHours, setMH, gain, setGain }) {
   return (
-    <section>
-      <h2>Pas je cijfers aan</h2>
-      <div className="assumptions">
+    <div className="assumptions">
         <p className="assumptions-hint">Pas dit aan op jouw situatie; alle cijfers verversen direct.</p>
 
         <div className="rate-presets">
@@ -43,8 +41,7 @@ export default function Controls({ rate, setRate, monthlyHours, setMH, gain, set
             display={`${gain}%`}
           />
         </div>
-      </div>
-    </section>
+    </div>
   )
 }
 
